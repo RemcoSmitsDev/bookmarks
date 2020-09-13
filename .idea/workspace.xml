@@ -10,7 +10,12 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="612f2e9b-170a-443b-9b35-c5b32cf1da22" name="Default Changelist" comment="first changes" />
+    <list default="true" id="612f2e9b-170a-443b-9b35-c5b32cf1da22" name="Default Changelist" comment="first changes">
+      <change afterPath="$PROJECT_DIR$/images/banner.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -29,12 +34,15 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1hBhG99kvTsjjivTVQOFaQjpKiZ" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
@@ -74,6 +82,7 @@
       <workItem from="1599909190910" duration="2067000" />
       <workItem from="1599911328769" duration="18499000" />
       <workItem from="1599937762350" duration="1300000" />
+      <workItem from="1599998325928" duration="3462000" />
     </task>
     <task id="LOCAL-00001" summary="first changes">
       <created>1599937953340</created>
@@ -101,6 +110,7 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="first changes" />
     <option name="LAST_COMMIT_MESSAGE" value="first changes" />
   </component>
@@ -113,10 +123,10 @@
       <screen x="0" y="23" width="1792" height="1028" />
     </state>
     <state x="616" y="346" key="#com.intellij.fileTypes.FileTypeChooser/0.23.1792.1028@0.23.1792.1028" timestamp="1599937925446" />
-    <state x="634" y="291" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1599927223986">
+    <state x="634" y="291" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1599999954159">
       <screen x="0" y="23" width="1792" height="1028" />
     </state>
-    <state x="634" y="291" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.1792.1028@0.23.1792.1028" timestamp="1599927223986" />
+    <state x="634" y="291" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.1792.1028@0.23.1792.1028" timestamp="1599999954159" />
     <state x="650" y="456" key="ComposerInitDialogKey" timestamp="1599909562648">
       <screen x="0" y="23" width="1792" height="1028" />
     </state>
@@ -125,10 +135,10 @@
       <screen x="0" y="23" width="1792" height="1028" />
     </state>
     <state x="397" y="176" key="SettingsEditor/0.23.1792.1028@0.23.1792.1028" timestamp="1599911320763" />
-    <state x="496" y="277" key="Vcs.Push.Dialog.v2" timestamp="1599994503355">
+    <state x="496" y="277" key="Vcs.Push.Dialog.v2" timestamp="1599998628733">
       <screen x="0" y="23" width="1792" height="1028" />
     </state>
-    <state x="496" y="277" key="Vcs.Push.Dialog.v2/0.23.1792.1028@0.23.1792.1028" timestamp="1599994503355" />
+    <state x="496" y="277" key="Vcs.Push.Dialog.v2/0.23.1792.1028@0.23.1792.1028" timestamp="1599998628733" />
     <state x="677" y="433" key="git4idea.remote.GitConfigureRemotesDialog" timestamp="1599994553373">
       <screen x="0" y="23" width="1792" height="1028" />
     </state>
