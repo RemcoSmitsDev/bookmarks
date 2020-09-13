@@ -18,23 +18,28 @@ $cats = $bladwijzers->GetAllCats();
     <link rel="stylesheet" media="all" href="./css/tailwindcss.css">
 </head>
 
-<body class="p-10 w-full h-screen bg-gray-100">
-<div class="md:flex md:space-x-10 md:justify-center ">
-    <?php if(count($cats) > 0): ?>
-    <button id="showItemMenu" class="px-4 py-2 space-x-2 inline-flex items-center justify-center rounded bg-indigo-600 text-white border hover:border-indigo-600 hover:bg-white hover:text-indigo-600">
-        <h1 class="text-2xl font-semibold">Create item</h1>
-        <svg class="h-6 w-6 mt-1 animate-pulse" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
-        </svg>
-    </button>
-    <?php endif; ?>
-    <button id="showCatMenu" class="px-4 py-2 inline-flex items-center justify-center rounded border bg-indigo-600 text-white hover:border-indigo-500 hover:bg-white hover:text-indigo-500">
-        <h1 class="text-3xl font-semibold">Create category</h1>
-        <svg class="h-6 w-6 mt-1 animate-pulse" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
-        </svg>
-    </button>
+<body>
+<div class="absolute w-full" style="z-index:-1; background: linear-gradient(90deg, #0072ff 0%, #00d4ff 100%); clip-path: polygon(100% 0, 100% 23%, 0 58%, 0 0); height: 30rem;">
 </div>
+<nav id="nav" class="relative py-6 px-4 w-full md:flex md:items-center md:justify-between container mx-auto max-w-screen-xl z-auto" >
+    <a class="text-3xl font-semibold transform hover:scale-110 text-white" href="./">Bookmarks</a>
+    <div class="mt-4 md:mt-0 space-y-4 md:space-y-0 md:flex-row flex-col flex md:space-x-4">
+        <?php if(count($cats) > 0):  ?>
+            <div>
+                <button id="showItemMenu" class="px-4 py-2 inline-flex items-center rounded bg-white bg-opacity-25 text-white font-semibold transform hover:scale-110">Create bookmark <span class="mt-px"><svg class="h-6 w-6 mt-px" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                    </svg></span></button>
+            </div>
+        <?php endif; ?>
+            <button id="showCatMenu" class="px-4 py-2 inline-flex items-center rounded bg-white bg-opacity-25 text-white font-semibold transform hover:scale-110">Create category
+                <span class="mt-px">
+                    <svg class="h-6 w-6 mt-px" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                    </svg>
+                </span>
+            </button>
+    </div>
+</nav>
 <div id="create-form" class="flex items-center h-screen opacity-0 hidden fixed inset-0 bg-black bg-opacity-50 transition-opacity ease-in duration-150 z-10">
     <form id="fromCR"
           class="space-y-4 w-full flex flex-col px-10 pt-10 pb-20 mx-auto max-w-lg bg-white"
@@ -51,7 +56,7 @@ $cats = $bladwijzers->GetAllCats();
         <button id="add" class="px-4 py-2 bg-blue-500 rounded font-semibold text-white">Create new one</button>
     </form>
 </div>
-<div class="mt-10 md:mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+<div class="px-4 md:mt-48 mt-32 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 w-full container mx-auto max-w-screen-xl">
     <?php foreach ($cats as $cat) : ?>
         <div>
             <h1 class="font-bold text-2xl"><?= $cat->name; ?></h1>
@@ -140,7 +145,7 @@ $cats = $bladwijzers->GetAllCats();
                 }
             }
         });
-    })
+    });
 </script>
 </body>
 

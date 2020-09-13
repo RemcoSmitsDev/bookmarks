@@ -38,7 +38,7 @@ class Login{
     }
 
     public function CheckIfUserExist($email,$password){
-        $this->db->query("SELECT id, first_name, last_name, email, password FROM users WHERE email = :email LIMIT 1");
+        $this->db->query("SELECT id, first_name, last_name, email, token FROM users WHERE email = :email LIMIT 1");
         $this->db->bind(":email", $email);
         return $this->db->single();
     }

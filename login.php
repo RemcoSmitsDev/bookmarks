@@ -14,8 +14,10 @@ if(isset($_COOKIE['email'], $_COOKIE['token']) && !empty($_COOKIE['email'] && $_
 }
 if(isset($_POST['email'], $_POST['password']) && $_POST['email'] !== "" && $_POST['password'] !== ""){
     if($login->HandleLogin($_POST['email'], $_POST['password'])){
-        setcookie("email", $_POST['email'], time()+3600);
-        setcookie("token", $login->createToken(), time()+3600);
+        if(!isset($_SESSION['_user']->token)){
+            setcookie("email", $_POST['email'], time()+3600);
+            setcookie("token", $login->createToken(), time()+3600);
+        }
         header("location: ./bladwijzer.php");
     }else{
         $error = "couldn't find a user with your email and password!";
