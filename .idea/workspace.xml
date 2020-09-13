@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand />
+    <select>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </select>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="612f2e9b-170a-443b-9b35-c5b32cf1da22" name="Default Changelist" comment="first changes" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="Git.Settings">
+    <option name="PUSH_TAGS">
+      <GitPushTagMode>
+        <option name="argument" value="--tags" />
+        <option name="title" value="All" />
+      </GitPushTagMode>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1hBhG99kvTsjjivTVQOFaQjpKiZ" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="bladwijzers" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner directory="$PROJECT_DIR$" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="PHPUnit.bladwijzers" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="612f2e9b-170a-443b-9b35-c5b32cf1da22" name="Default Changelist" comment="" />
+      <created>1599490294696</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1599490294696</updated>
+      <workItem from="1599490296157" duration="142000" />
+      <workItem from="1599507032970" duration="3434000" />
+      <workItem from="1599825768345" duration="6751000" />
+      <workItem from="1599909190910" duration="2067000" />
+      <workItem from="1599911328769" duration="18499000" />
+      <workItem from="1599937762350" duration="1300000" />
+    </task>
+    <task id="LOCAL-00001" summary="first changes">
+      <created>1599937953340</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1599937953341</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="first changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="first changes" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="564" y="184" key="#PHP" timestamp="1599490386992">
+      <screen x="0" y="23" width="1792" height="1022" />
+    </state>
+    <state x="564" y="184" key="#PHP/0.23.1792.1022@0.23.1792.1022" timestamp="1599490386992" />
+    <state x="616" y="346" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1599937925446">
+      <screen x="0" y="23" width="1792" height="1028" />
+    </state>
+    <state x="616" y="346" key="#com.intellij.fileTypes.FileTypeChooser/0.23.1792.1028@0.23.1792.1028" timestamp="1599937925446" />
+    <state x="634" y="291" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1599927223986">
+      <screen x="0" y="23" width="1792" height="1028" />
+    </state>
+    <state x="634" y="291" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.1792.1028@0.23.1792.1028" timestamp="1599927223986" />
+    <state x="650" y="456" key="ComposerInitDialogKey" timestamp="1599909562648">
+      <screen x="0" y="23" width="1792" height="1028" />
+    </state>
+    <state x="650" y="456" key="ComposerInitDialogKey/0.23.1792.1028@0.23.1792.1028" timestamp="1599909562648" />
+    <state x="397" y="176" key="SettingsEditor" timestamp="1599911320763">
+      <screen x="0" y="23" width="1792" height="1028" />
+    </state>
+    <state x="397" y="176" key="SettingsEditor/0.23.1792.1028@0.23.1792.1028" timestamp="1599911320763" />
+    <state x="496" y="277" key="Vcs.Push.Dialog.v2" timestamp="1599994503355">
+      <screen x="0" y="23" width="1792" height="1028" />
+    </state>
+    <state x="496" y="277" key="Vcs.Push.Dialog.v2/0.23.1792.1028@0.23.1792.1028" timestamp="1599994503355" />
+    <state x="677" y="433" key="git4idea.remote.GitConfigureRemotesDialog" timestamp="1599994553373">
+      <screen x="0" y="23" width="1792" height="1028" />
+    </state>
+    <state x="677" y="433" key="git4idea.remote.GitConfigureRemotesDialog/0.23.1792.1028@0.23.1792.1028" timestamp="1599994553373" />
+    <state x="561" y="251" width="670" height="676" key="search.everywhere.popup" timestamp="1599910545714">
+      <screen x="0" y="23" width="1792" height="1028" />
+    </state>
+    <state x="561" y="251" width="670" height="676" key="search.everywhere.popup/0.23.1792.1028@0.23.1792.1028" timestamp="1599910545714" />
+  </component>
+</project>
