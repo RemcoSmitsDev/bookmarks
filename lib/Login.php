@@ -25,32 +25,70 @@ class Login{
         return $randstring;
     }
 
+    public function startCookie(){
+        if(!isset($_COOKIE['email'], $_COOKIE['token'])){
+            setcookie("email", $_SESSION['_user']->email, time()+31556926);
+            setcookie("token", $this->createToken(), time()+31556926);
+        }else{
+            setcookie("email", $_SESSION['_user']->email, time()+31556926);
+            setcookie("token", $_SESSION['_user']->token, time()+31556926);
+        }
+    }
 
     public function HandleLogin($email, $password){
         if(!isset($_SESSION['_user'])){
-            if($this->CheckIfUserExist($email, $password)){
-                $_SESSION['_user'] = $this->CheckIfUserExist($email, $password);
-                return true;
+            if($user = $this->CheckIfUserExist($email, md5($password))){
+                $_SESSION['_user'] = $user;
+                $this->startCookie();
+                return $user;
+            }else{
+                return false;
+            }
+        }
+    }
+    public function HandleTokenLogin($email, $token){
+        if(!isset($_SESSION['_user'])){
+            if($user = $this->CheckIfUserExistWithToken($email, $token)){
+                $_SESSION['_user'] = $user;
+                $this->startCookie();
+                return $user;
             }else{
                 return false;
             }
         }
     }
 
-    public function CheckIfUserExist($email,$password){
+    public function CheckIfUserExistWithToken($email, $token){
+        $this->db->query("SELECT id, first_name, last_name, email, token FROM users WHERE email = :email AND token = :token LIMIT 1");
+        $this->db->bind(":email", $email);
+        $this->db->bind(":token", $token);
+        return $this->db->single();
+    }
+
+    public function CheckIfUserExist($email){
         $this->db->query("SELECT id, first_name, last_name, email, token FROM users WHERE email = :email LIMIT 1");
         $this->db->bind(":email", $email);
         return $this->db->single();
     }
 
     public function CreateUser($first_name, $last_name, $email, $password){
-        $this->db->query("INSERT INTO users (first_name, last_name, password) VALUES (:first_name, :last_name, :email, :password)");
+        if($this->CheckIfUserExist($email)){
+            return false;
+        }
+        $this->db->query("INSERT INTO users (first_name, last_name, email, password) VALUES (:first_name, :last_name, :email, :password)");
         $this->db->bind(":first_name", $first_name);
         $this->db->bind(":last_name", $last_name);
         $this->db->bind(":email", $email);
         $this->db->bind(":password",  md5($password));
-        if(!$this->CheckIfUserExist($email)){
-            $this->db->execute();
-        }
+        $this->db->execute();
+        return true;
+    }
+    public function logout(){
+        unset($_COOKIE['email']);
+        unset($_COOKIE['token']);
+        setcookie('email', null, -1);
+        setcookie('token', null, -1);
+        session_destroy();
+        header("location: ./");
     }
 }

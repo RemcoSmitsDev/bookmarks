@@ -6,18 +6,14 @@ if(isset($_SESSION['_user'])){
     header("location: ./bladwijzer.php");
 }
 if(isset($_COOKIE['email'], $_COOKIE['token']) && !empty($_COOKIE['email'] && $_COOKIE['token']) &&  empty($_SESSION['_user'])){
-    if($user = $login->checkToken($_COOKIE['email'], $_COOKIE['token'])){
-        if($login->HandleLogin($user->email, $user->password)){
+    if($login->checkToken($_COOKIE['email'], $_COOKIE['token'])){
+        if($login->HandleTokenLogin($_COOKIE['email'], $_COOKIE['token'])){
             header("location: ./bladwijzer.php");
         }
     }
 }
 if(isset($_POST['email'], $_POST['password']) && $_POST['email'] !== "" && $_POST['password'] !== ""){
     if($login->HandleLogin($_POST['email'], $_POST['password'])){
-        if(!isset($_SESSION['_user']->token)){
-            setcookie("email", $_POST['email'], time()+3600);
-            setcookie("token", $login->createToken(), time()+3600);
-        }
         header("location: ./bladwijzer.php");
     }else{
         $error = "couldn't find a user with your email and password!";

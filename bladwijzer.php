@@ -1,11 +1,15 @@
 <?php
 require_once "./config/init.php";
-if(!isset($_SESSION['_user'])){
-    header("location: ./");
-}
 $bladwijzers = new Bladwijzers();
 $user = new Login();
 $cats = $bladwijzers->GetAllCats();
+if(!isset($_SESSION['_user'])){
+    header("location: ./login.php");
+}
+if(isset($_GET['logout'])){
+    $user->logout();
+}
+
 
 ?>
 <!DOCTYPE html>
@@ -18,7 +22,7 @@ $cats = $bladwijzers->GetAllCats();
     <link rel="stylesheet" media="all" href="./css/tailwindcss.css">
 </head>
 
-<body>
+<body class="antialiased">
 <div class="absolute w-full" style="z-index:-1; background: linear-gradient(90deg, #0072ff 0%, #00d4ff 100%); clip-path: polygon(100% 0, 100% 23%, 0 58%, 0 0); height: 30rem;">
 </div>
 <nav id="nav" class="relative py-6 px-4 w-full md:flex md:items-center md:justify-between container mx-auto max-w-screen-xl z-auto" >

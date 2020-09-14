@@ -1,9 +1,12 @@
 <?php
 require_once "./config/init.php";
 $login = new Login();
+if(isset($_GET['logout'])){
+    $login->logout();
+}
 if(isset($_COOKIE['email'], $_COOKIE['token']) && !empty($_COOKIE['email'] && $_COOKIE['token']) && empty($_SESSION['_user'])){
-    if($user = $login->checkToken($_COOKIE['email'], $_COOKIE['token'])){
-        if($login->HandleLogin($user->email, $user->password)){
+    if($login->checkToken($_COOKIE['email'], $_COOKIE['token'])){
+        if($login->HandleTokenLogin($_COOKIE['email'], $_COOKIE['token'])){
             header("resfresh:0;");
         }
     }
@@ -28,7 +31,7 @@ if(isset($_COOKIE['email'], $_COOKIE['token']) && !empty($_COOKIE['email'] && $_
     <?php if(!isset($_SESSION['_user'])):  ?>
     <div class="space-x-4">
         <a class="px-4 py-2 inline-flex items-center rounded bg-white bg-opacity-25 text-white font-semibold transform hover:scale-110" href="login.php">Login</a>
-        <a class="px-4 py-2 inline-flex items-center rounded border border-bg-green-400 text-white font-semibold transform hover:scale-110" href="register.php">Register</a>
+        <a class="px-4 py-2 inline-flex items-center rounded border border-bg-green-400 text-white font-semibold transform hover:scale-110" href="register.php">Create an account</a>
     </div>
     <?php else: ?>
     <a class="group px-4 py-2 inline-flex items-center rounded bg-white bg-opacity-25 text-white font-semibold transform hover:scale-110" href="bladwijzer.php">Go to your bookmarks
@@ -58,9 +61,9 @@ if(isset($_COOKIE['email'], $_COOKIE['token']) && !empty($_COOKIE['email'] && $_
         <div class="mt-20 space-x-6 flex items-center justify-center">
             <?php if(!isset($_SESSION['_user'])):  ?>
         <a class="px-4 py-2 inline-flex items-center rounded text-white font-semibold transform hover:scale-110" href="login.php" style="background: linear-gradient(90deg, #0072ff 0%, #00d4ff 100%);">Login</a>
-        <a class="px-4 py-2 inline-flex items-center rounded border border-bg-green-400 font-semibold transform hover:scale-110" href="register.php">register</a>
+        <a class="px-4 py-2 inline-flex items-center rounded border border-bg-green-400 font-semibold transform hover:scale-110" href="register.php">Create an account</a>
             <?php else: ?>
-            <a class="group px-4 py-2 inline-flex items-center rounded text-white font-semibold transform hover:scale-110" href="bladwijzer.php" style="background: linear-gradient(90deg, #0072ff 0%, #00d4ff 100%);">Go to your bookmarks
+            <a class="px-4 py-2 inline-flex items-center rounded text-white font-semibold transform hover:scale-110" href="bladwijzer.php" style="background: linear-gradient(90deg, #0072ff 0%, #00d4ff 100%);">Go to your bookmarks
                 <span class="mt-px">
             <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
               <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
@@ -71,47 +74,48 @@ if(isset($_COOKIE['email'], $_COOKIE['token']) && !empty($_COOKIE['email'] && $_
         </div>
     </div>
 </div>
-<section class="px-4 mt-16 flex items-center justify-center z-10">
+<section class="mx-4 mt-16 md:mt-32 xl:space-x-20 space-y-16 xl:space-y-0 xl:flex-row flex-col flex items-center justify-center z-10">
     <div>
-        <h1 class="leading-tight font-bold text-4xl md:text-6xl text-gray-900">Your bookmarks</h1>
-        <h1 class="leading-tight font-bold text-4xl sm:text-5xl md:text-6xl text-gray-900">at</h1>
-        <h1 class="leading-tight font-bold text-4xl sm:text-5xl md:text-6xl text-gray-900">one place</h1>
+        <h1 class="leading-tight font-bold text-5xl sm:text-6xl md:text-6xl text-gray-900"><span class="text-4xl sm:text-5xl">Your</span> bookmarks</h1>
+        <h1 class="leading-tight font-bold text-4xl sm:text-5xl text-gray-900">at</h1>
+        <h1 class="leading-tight font-bold text-4xl sm:text-5xl text-gray-900">one place</h1>
     </div>
-    <div class="lg:block hidden">
-        <img class="h-auto w-full max-w-2xl" src="./images/banner.svg" alt="">
-    </div>
-</section>
-<section class="px-4 mt-32 space-y-10 container mx-auto max-w-screen-xl">
-    <div id="info-1" class="relative mx-auto md:ml-0 p-6 space-y-2 rounded-lg shadow max-w-md transform hover:scale-105 transistion-scale duration-500">
-        <span class="-ml-2 -mt-2 h-6 w-6 absolute top-0 left-0 px-2 inline-flex items-center justify-center rounded-full bg-indigo-600 text-white font-semibold">1</span>
-        <h2 class="font-semibold text-2xl">Create a account</h2>
-        <p class="leading-relaxed">To create an account it's very easy and fast. You only have to pass in 3 fields and you are done.</p>
-    </div>
-    <div id="info-2" class="relative md:ml-auto md:mr-0 mx-auto p-6 space-y-2 rounded-lg shadow max-w-md transform hover:scale-105 transistion-scale duration-500">
-        <span class="-ml-2 -mt-2 h-6 w-6 absolute top-0 left-0 px-2 inline-flex items-center justify-center rounded-full bg-indigo-600 text-white font-semibold">2</span>
-        <h2 class="font-semibold text-2xl">Add some categories</h2>
-        <p class="leading-relaxed">You can really easy add categories.</p>
-    </div>
-    <div id="info-3" class="relative mx-auto md:ml-0 p-6 space-y-2 rounded-lg shadow max-w-md transform hover:scale-105 transistion-scale duration-500">
-        <span class="-ml-2 -mt-2 h-6 w-6 absolute top-0 left-0 px-2 inline-flex items-center justify-center rounded-full bg-indigo-600 text-white font-semibold">3</span>
-        <h2 class="font-semibold text-2xl">Add some items</h2>
-        <p class="leading-relaxed">If you have made some categories, you can add bookmarks for each category.</p>
+    <div class="flex-shrink">
+        <img class="h-auto w-full max-w-2xl shadow-xl" src="./images/banner.png" alt="">
     </div>
 </section>
-<footer id="footer" class="mt-20">
-    <div class="px-4 container mx-auto max-w-screen-xl">
-        <h1>dit is een footer</h1>
+<?php if(!isset($_SESSION['_user'])): ?>
+<section class="md:hidden px-6 my-48 container mx-auto max-w-screen-xl">
+    <div class="border-l-2 space-y-20">
+        <div id="info-1" class="-ml-3 space-x-2 flex items-center max-w-md">
+            <span class="h-6 w-6 px-2 inline-flex items-center justify-center rounded-full text-white font-semibold" style="background: #00d4ff;">1</span>
+            <a href="./register.php" class="font-semibold text-2xl">Create an account</a>
+    <!--        <p class="leading-relaxed">To create an account it's very easy and fast. You only have to pass in 3 fields and you are done.</p>-->
+        </div>
+        <div id="info-2" class="-ml-3 space-x-2 flex items-center max-w-md">
+            <span class="h-6 w-6 px-2 inline-flex items-center justify-center rounded-full text-white font-semibold" style="background: #00d4ff;">2</span>
+            <h2 class="font-semibold text-2xl">Add categories</h2>
+    <!--        <p class="leading-relaxed">You can really easy add categories.</p>-->
+        </div>
+        <div id="info-3" class="-ml-3 space-x-2 flex items-center max-w-md">
+            <span class="h-6 w-6 px-2 inline-flex items-center justify-center rounded-full text-white font-semibold" style="background: #00d4ff;">3</span>
+            <h2 class="font-semibold text-2xl">Add bookmark</h2>
+    <!--        <p class="leading-relaxed">If you have made some categories, you can add bookmarks for each category.</p>-->
+        </div>
     </div>
-</footer>
+</section>
+<?php endif; ?>
 <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
 <script type="text/javascript">
 $("#toggleMenu").click((e) => {
     $("#menu").removeClass("hidden");
     $("#menu").removeClass("opacity-0");
+    $("body").addClass("overflow-hidden");
 });
 $("#closeMenu").click((e) => {
     $("#menu").addClass("hidden");
     $("#menu").addClass("opacity-0");
+    $("body").removeClass("overflow-hidden");
 });
 </script>
 </body>

@@ -13,9 +13,12 @@
     <list default="true" id="612f2e9b-170a-443b-9b35-c5b32cf1da22" name="Default Changelist" comment="first changes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bladwijzer.php" beforeDir="false" afterPath="$PROJECT_DIR$/bladwijzer.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/banner.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/banner.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/banner.svg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/Login.php" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Login.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/login.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/register.php" beforeDir="false" afterPath="$PROJECT_DIR$/register.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,7 +86,8 @@
       <workItem from="1599909190910" duration="2067000" />
       <workItem from="1599911328769" duration="18499000" />
       <workItem from="1599937762350" duration="1300000" />
-      <workItem from="1599998325928" duration="12916000" />
+      <workItem from="1599998325928" duration="13129000" />
+      <workItem from="1600077406601" duration="13067000" />
     </task>
     <task id="LOCAL-00001" summary="first changes">
       <created>1599937953340</created>
@@ -144,9 +148,9 @@
       <screen x="0" y="23" width="1792" height="1028" />
     </state>
     <state x="677" y="433" key="git4idea.remote.GitConfigureRemotesDialog/0.23.1792.1028@0.23.1792.1028" timestamp="1599994553373" />
-    <state x="561" y="251" width="670" height="676" key="search.everywhere.popup" timestamp="1599910545714">
+    <state x="561" y="251" width="670" height="676" key="search.everywhere.popup" timestamp="1600103958201">
       <screen x="0" y="23" width="1792" height="1028" />
     </state>
-    <state x="561" y="251" width="670" height="676" key="search.everywhere.popup/0.23.1792.1028@0.23.1792.1028" timestamp="1599910545714" />
+    <state x="561" y="251" width="670" height="676" key="search.everywhere.popup/0.23.1792.1028@0.23.1792.1028" timestamp="1600103958201" />
   </component>
 </project>
