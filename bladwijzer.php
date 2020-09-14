@@ -9,7 +9,7 @@ if(!isset($_SESSION['_user'])){
 if(isset($_GET['logout'])){
     $user->logout();
 }
-$slug = substr($_SERVER['REQUEST_URI'], strlen('/bookmarks/'));
+$slug = str_replace("/bookmarks/", "",$_SERVER['REQUEST_URI']);
 if($slug !== $_SESSION['_user']->first_name . "-" . $_SESSION['_user']->last_name){
     header("location: ". $_SESSION['_user']->first_name . "-" . $_SESSION['_user']->last_name);
 }
@@ -20,7 +20,7 @@ if($slug !== $_SESSION['_user']->first_name . "-" . $_SESSION['_user']->last_nam
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bladwijzers - Made by Rswebdevelopment</title>
+    <title>Bladwijzers - Your bookmarks at one place</title>
     <link rel="stylesheet" media="all" href="./css/tailwindcss.css">
 </head>
 

@@ -20,7 +20,7 @@ if(isset($_COOKIE['email'], $_COOKIE['token']) && !empty($_COOKIE['email'] && $_
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="./css/tailwindcss.css">
-    <title>Home - Bookmarks</title>
+    <title>Home - Your bookmarks at one place</title>
 </head>
 <body class="antialiased">
 <div class="absolute w-full" style="z-index:-1; background: linear-gradient(90deg, #0072ff 0%, #00d4ff 100%); clip-path: polygon(100% 0, 100% 23%, 0 58%, 0 0); height: 30rem;">
@@ -30,8 +30,8 @@ if(isset($_COOKIE['email'], $_COOKIE['token']) && !empty($_COOKIE['email'] && $_
     <div class="hidden md:block">
     <?php if(!isset($_SESSION['_user'])):  ?>
     <div class="space-x-4">
-        <a class="px-4 py-2 inline-flex items-center rounded bg-white bg-opacity-25 text-white font-semibold transform hover:scale-110" href="login.php">Login</a>
-        <a class="px-4 py-2 inline-flex items-center rounded border border-bg-green-400 text-white font-semibold transform hover:scale-110" href="register.php">Create an account</a>
+        <a class="px-4 py-2 inline-flex items-center rounded bg-white bg-opacity-25 text-white font-semibold transform hover:scale-110" href="login">Login</a>
+        <a class="px-4 py-2 inline-flex items-center rounded border border-bg-green-400 text-white font-semibold transform hover:scale-110" href="register">Create an account</a>
     </div>
     <?php else: ?>
     <a class="group px-4 py-2 inline-flex items-center rounded bg-white bg-opacity-25 text-white font-semibold transform hover:scale-110" href="<?= $_SESSION['_user']->first_name. "-".$_SESSION['_user']->last_name ?>">Go to your bookmarks
@@ -60,8 +60,8 @@ if(isset($_COOKIE['email'], $_COOKIE['token']) && !empty($_COOKIE['email'] && $_
         </div>
         <div class="mt-20 space-x-6 flex items-center justify-center">
             <?php if(!isset($_SESSION['_user'])):  ?>
-        <a class="px-4 py-2 inline-flex items-center rounded text-white font-semibold transform hover:scale-110" href="login.php" style="background: linear-gradient(90deg, #0072ff 0%, #00d4ff 100%);">Login</a>
-        <a class="px-4 py-2 inline-flex items-center rounded border border-bg-green-400 font-semibold transform hover:scale-110" href="register.php">Create an account</a>
+        <a class="px-4 py-2 inline-flex items-center rounded text-white font-semibold transform hover:scale-110" href="login" style="background: linear-gradient(90deg, #0072ff 0%, #00d4ff 100%);">Login</a>
+        <a class="px-4 py-2 inline-flex items-center rounded border border-bg-green-400 font-semibold transform hover:scale-110" href="register">Create an account</a>
             <?php else: ?>
             <a class="px-4 py-2 inline-flex items-center rounded text-white font-semibold transform hover:scale-110" href="<?= $_SESSION['_user']->first_name. "-".$_SESSION['_user']->last_name ?>" style="background: linear-gradient(90deg, #0072ff 0%, #00d4ff 100%);">Go to your bookmarks
                 <span class="mt-px">

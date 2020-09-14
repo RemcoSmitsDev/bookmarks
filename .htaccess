@@ -1,3 +1,8 @@
 RewriteEngine On
+RewriteRule ^login/?$ login.php [NC,L]
+RewriteRule ^register/?$ register.php [NC,L]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^([a-zA-Z0-9_-]+)$ bladwijzer.php?u=$1
 RewriteRule ^([a-zA-Z0-9_-]+)/$ bladwijzer.php?u=$1
