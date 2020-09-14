@@ -8,13 +8,13 @@ if(isset($_SESSION['_user'])){
 if(isset($_COOKIE['email'], $_COOKIE['token']) && !empty($_COOKIE['email'] && $_COOKIE['token']) &&  empty($_SESSION['_user'])){
     if($login->checkToken($_COOKIE['email'], $_COOKIE['token'])){
         if($login->HandleTokenLogin($_COOKIE['email'], $_COOKIE['token'])){
-            header("location: ./bladwijzer.php");
+            header("location: ". $_SESSION['_user']->first_name. "-".$_SESSION['_user']->last_name);
         }
     }
 }
 if(isset($_POST['email'], $_POST['password']) && $_POST['email'] !== "" && $_POST['password'] !== ""){
     if($login->HandleLogin($_POST['email'], $_POST['password'])){
-        header("location: ./bladwijzer.php");
+        header("location: " . $_SESSION['_user']->first_name. "-".$_SESSION['_user']->last_name);
     }else{
         $error = "couldn't find a user with your email and password!";
     }
@@ -37,7 +37,7 @@ if(isset($_POST['email'], $_POST['password']) && $_POST['email'] !== "" && $_POS
     <?php if($error !== ""): ?>
     <h2 class="text-red-500"><?= $error ?></h2>
     <?php endif; ?>
-    <form class="w-full flex flex-col space-y-4" action="login.php" method="POST">
+    <form class="flex flex-col space-y-4" action="login.php" method="POST">
         <input class="px-4 py-2 border outline-none rounded" type="text" name="email" placeholder="Email" value="<?php if(isset($_COOKIE['email'])){echo $_COOKIE['email']; } ?>" required>
         <input class="px-4 py-2 border outline-none rounded" type="password" name="password" placeholder="Password" value="" required>
         <button class="px-4 py-2 rounded font-semibold" type="submit">Log In</button>

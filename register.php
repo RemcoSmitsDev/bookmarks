@@ -5,18 +5,21 @@ $register = new login();
 if(isset($_SESSION['_user'])){
     header("location: ./bladwijzer.php");
 }
+$error = "";
 if(isset($_COOKIE['email'], $_COOKIE['token']) && !empty($_COOKIE['email'] && $_COOKIE['token']) &&  empty($_SESSION['_user'])){
     if($user = $register->checkToken($_COOKIE['email'], $_COOKIE['token'])){
         if($register->HandleTokenLogin($user->email, $_COOKIE['token'])){
-            header("location: ./bladwijzer.php");
+            header("location: ". $_SESSION['_user']->first_name. "-".$_SESSION['_user']->last_name);
         }
     }
 }
 if(isset($_POST['first_name'],$_POST['last_name'], $_POST['email'],$_POST['password'])){
     if($register->CreateUser($_POST['first_name'],$_POST['last_name'], $_POST['email'],$_POST['password'])){
         if($register->HandleLogin($_POST['email'], $_POST['password'])){
-            header("location: ./bladwijzer.php");
+            header("location: ".$_SESSION['_user']->first_name. "-".$_SESSION['_user']->last_name);
         }
+    }else{
+        $error = "User already exist with you email!";
     }
 }
 ?>
@@ -37,7 +40,10 @@ if(isset($_POST['first_name'],$_POST['last_name'], $_POST['email'],$_POST['passw
     <a class="text-3xl font-semibold transform hover:scale-110 text-white" href="./">Bookmarks</a>
 </nav>
 <section class="space-y-6 px-4 mt-56 container mx-auto max-w-lg">
-        <h2 class="font-semibold text-4xl text-center">Create an account</h2>
+    <h2 class="font-semibold text-4xl text-center">Create an account</h2>
+    <?php if($error !== ""): ?>
+        <h2 class="text-red-500 text-center"><?= $error ?></h2>
+    <?php endif; ?>
     <form class="space-y-4 flex flex-col" action="./register.php" method="post">
         <input class="px-4 py-2 border outline-none rounded" type="text" name="first_name" placeholder="First name" required>
         <input class="px-4 py-2 border outline-none rounded" type="text" name="last_name" placeholder="Last name" required>

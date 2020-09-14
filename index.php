@@ -34,7 +34,7 @@ if(isset($_COOKIE['email'], $_COOKIE['token']) && !empty($_COOKIE['email'] && $_
         <a class="px-4 py-2 inline-flex items-center rounded border border-bg-green-400 text-white font-semibold transform hover:scale-110" href="register.php">Create an account</a>
     </div>
     <?php else: ?>
-    <a class="group px-4 py-2 inline-flex items-center rounded bg-white bg-opacity-25 text-white font-semibold transform hover:scale-110" href="bladwijzer.php">Go to your bookmarks
+    <a class="group px-4 py-2 inline-flex items-center rounded bg-white bg-opacity-25 text-white font-semibold transform hover:scale-110" href="<?= $_SESSION['_user']->first_name. "-".$_SESSION['_user']->last_name ?>">Go to your bookmarks
         <span class="mt-px">
             <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
               <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
@@ -63,7 +63,7 @@ if(isset($_COOKIE['email'], $_COOKIE['token']) && !empty($_COOKIE['email'] && $_
         <a class="px-4 py-2 inline-flex items-center rounded text-white font-semibold transform hover:scale-110" href="login.php" style="background: linear-gradient(90deg, #0072ff 0%, #00d4ff 100%);">Login</a>
         <a class="px-4 py-2 inline-flex items-center rounded border border-bg-green-400 font-semibold transform hover:scale-110" href="register.php">Create an account</a>
             <?php else: ?>
-            <a class="px-4 py-2 inline-flex items-center rounded text-white font-semibold transform hover:scale-110" href="bladwijzer.php" style="background: linear-gradient(90deg, #0072ff 0%, #00d4ff 100%);">Go to your bookmarks
+            <a class="px-4 py-2 inline-flex items-center rounded text-white font-semibold transform hover:scale-110" href="<?= $_SESSION['_user']->first_name. "-".$_SESSION['_user']->last_name ?>" style="background: linear-gradient(90deg, #0072ff 0%, #00d4ff 100%);">Go to your bookmarks
                 <span class="mt-px">
             <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
               <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />

@@ -9,8 +9,10 @@ if(!isset($_SESSION['_user'])){
 if(isset($_GET['logout'])){
     $user->logout();
 }
-
-
+$slug = substr($_SERVER['REQUEST_URI'], strlen('/bookmarks/'));
+if($slug !== $_SESSION['_user']->first_name . "-" . $_SESSION['_user']->last_name){
+    header("location: ". $_SESSION['_user']->first_name . "-" . $_SESSION['_user']->last_name);
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
