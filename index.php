@@ -20,7 +20,16 @@ if(isset($_COOKIE['email'], $_COOKIE['token']) && !empty($_COOKIE['email'] && $_
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="./css/tailwindcss.css">
-    <title>Home - Your bookmarks at one place</title>
+    <meta property="og:description" content="All your bookmarks in one place">
+    <meta property="og:title" content="Homepage - All your bookmarks in one place">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Homepage - All your bookmarks in one place">
+    <meta property="og:image" content="https://bladwijzers.rswebdevelopment.nl/images/banner.png">
+    <meta property="og:url" content="https://bladwijzers.rswebdevelopment.nl/" />
+    <meta name="description" content="All your bookmarks in one place. Easy to use bookmarks system.">
+    <meta name="keywords"
+          content="Bookmarks, bladwijzers, start.io, bladwijzer, bookmarks system, bookmarks on startpage">
+    <title>Home - All your bookmarks in one place</title>
 </head>
 <body class="antialiased">
 <div class="absolute w-full" style="z-index:-1; background: linear-gradient(90deg, #0072ff 0%, #00d4ff 100%); clip-path: polygon(100% 0, 100% 23%, 0 58%, 0 0); height: 30rem;">
@@ -76,9 +85,8 @@ if(isset($_COOKIE['email'], $_COOKIE['token']) && !empty($_COOKIE['email'] && $_
 </div>
 <section class="mx-4 mt-16 md:mt-32 xl:space-x-20 space-y-16 xl:space-y-0 xl:flex-row flex-col flex items-center justify-center z-10">
     <div>
-        <h1 class="leading-tight font-bold text-5xl sm:text-6xl md:text-6xl text-gray-900"><span class="text-4xl sm:text-5xl">Your</span> bookmarks</h1>
-        <h1 class="leading-tight font-bold text-4xl sm:text-5xl text-gray-900">at</h1>
-        <h1 class="leading-tight font-bold text-4xl sm:text-5xl text-gray-900">one place</h1>
+        <h1 class="leading-tight font-bold text-2xl sm:text-5xl text-gray-900">All your  <span class="leading-tight font-bold text-2xl sm:text-5xl text-5xl sm:text-6xl md:text-6xl text-gray-900">bookmarks</span></h1>
+        <h1 class="leading-tight font-bold text-3xl sm:text-5xl text-gray-900">in one place</h1>
     </div>
     <div class="flex-shrink">
         <img class="h-auto w-full max-w-2xl shadow-xl" src="./images/banner.png" alt="">
