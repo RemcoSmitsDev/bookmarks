@@ -12,10 +12,7 @@
   <component name="ChangeListManager">
     <list default="true" id="612f2e9b-170a-443b-9b35-c5b32cf1da22" name="Default Changelist" comment="-">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bladwijzer.php" beforeDir="false" afterPath="$PROJECT_DIR$/bladwijzer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Bladwijzers.php" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Bladwijzers.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proccess.php" beforeDir="false" afterPath="$PROJECT_DIR$/proccess.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tailwind.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/tailwind.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Login.php" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Login.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,7 +89,8 @@
       <workItem from="1600182365925" duration="606000" />
       <workItem from="1600242746770" duration="1027000" />
       <workItem from="1600244049570" duration="160000" />
-      <workItem from="1600261682708" duration="7464000" />
+      <workItem from="1600261682708" duration="7676000" />
+      <workItem from="1600284149971" duration="277000" />
     </task>
     <task id="LOCAL-00001" summary="first changes">
       <created>1599937953340</created>

@@ -27,11 +27,11 @@ class Login{
 
     public function startCookie(){
         if(!isset($_COOKIE['email'], $_COOKIE['token'])){
-            setcookie("email", $_SESSION['_user']->email, time()+31556926);
-            setcookie("token", $this->createToken(), time()+31556926);
+            setcookie("email", $_SESSION['_user']->email, time() + (10 * 365 * 24 * 60 * 60), "/");
+            setcookie("token", $this->createToken(), time() + (10 * 365 * 24 * 60 * 60), "/");
         }else{
-            setcookie("email", $_SESSION['_user']->email, time()+31556926);
-            setcookie("token", $_SESSION['_user']->token, time()+31556926);
+            setcookie("email", $_SESSION['_user']->email, time() + (10 * 365 * 24 * 60 * 60), "/");
+            setcookie("token", $_SESSION['_user']->token, time() + (10 * 365 * 24 * 60 * 60), "/");
         }
     }
 
