@@ -9,10 +9,10 @@ if(!isset($_SESSION['_user'])){
 if(isset($_GET['logout'])){
     $user->logout();
 }
-$slug = str_replace("/bookmarks/", "",$_SERVER['REQUEST_URI']);
-if($slug !== $_SESSION['_user']->first_name . "-" . $_SESSION['_user']->last_name){
-    header("location: ". $_SESSION['_user']->first_name . "-" . $_SESSION['_user']->last_name);
-}
+//$slug = str_replace("/", "",$_SERVER['REQUEST_URI']);
+//if($slug !== $_SESSION['_user']->first_name . "-" . $_SESSION['_user']->last_name){
+//    header("location: ". $_SESSION['_user']->first_name . "-" . $_SESSION['_user']->last_name);
+//}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -64,14 +64,33 @@ if($slug !== $_SESSION['_user']->first_name . "-" . $_SESSION['_user']->last_nam
         <button id="add" class="px-4 py-2 bg-blue-500 rounded font-semibold text-white">Create new one</button>
     </form>
 </div>
-<div class="px-4 md:mt-32 mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 w-full container mx-auto max-w-screen-xl">
+<div id="editMenu" class="flex items-center h-screen opacity-0 hidden fixed inset-0 bg-black bg-opacity-50 transition-opacity ease-in duration-150 z-10">
+    <form id="editForm"
+          class="space-y-4 w-full flex flex-col px-10 pt-10 pb-20 mx-auto max-w-lg bg-white"
+          method="POST">
+        <h1 id="menu_title" class="mb-10 font-semibold text-2xl text-center">Edit bookmark!</h1>
+        <input class="px-4 py-2 border-2 outline-none rounded appearance-none" id="title" type="text" placeholder="Name" value="">
+        <input class="px-4 py-2 border-2 outline-none rounded appearance-none" id="url" type="text" placeholder="https://www.google.com/" value="">
+        <select class="px-4 py-2 border-2 outline-none rounded appearance-none" id="cat_id">
+            <?php foreach ($cats as $cat) : ?>
+                <option id="<?= $cat->id ?>" value="<?= $cat->id ?>"><?= $cat->name ?></option>
+            <?php endforeach; ?>
+        </select>
+        <button id="saveEdit" class="px-4 py-2 bg-blue-500 rounded font-semibold text-white">Create new one</button>
+    </form>
+</div>
+<div class="px-4 md:mt-32 mt-6 sm:mt-20 mb-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 w-full container mx-auto max-w-screen-xl">
     <?php foreach ($cats as $cat) : ?>
         <div>
             <h1 class="font-bold text-2xl"><?= $cat->name; ?></h1>
             <div class="space-y-2 flex flex-col">
                 <?php foreach ($bladwijzers->GetItemsByCat($cat->id) as $item) : ?>
-                    <span id="<?= $item->id; ?>" class="group inline-flex space-x-4"><a target="_blank" class="underline hover:no-underline outline-none" href="<?= $item->url; ?>"><?= $item->title; ?></a> <span onclick="removeItem(<?= $item->id; ?>)" class="group-hover:block md:hidden h-6 w-6 text-red-500 cursor-pointer transform hover:scale-110"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <span id="<?= $item->id; ?>" class="group inline-flex items-center space-x-4"><a target="_blank" class="flex items-center underline hover:no-underline outline-none" href="<?= $item->url; ?>"><div class="-mb-2 h-6 w-6 bg-no-repeat object-contain" style='background-image: url(https://www.google.com/s2/favicons?domain=<?= $item->url ?>);'></div><span><?= $item->title; ?></span></a>
+                        <span onclick="removeItem(<?= $item->id; ?>)" class="group-hover:block md:hidden h-6 w-6 text-red-500 cursor-pointer transform hover:scale-110">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+</svg></span><span onclick="editItem(<?= $item->id; ?>)" class="group-hover:block md:hidden h-5 w-5 cursor-pointer transform hover:scale-110"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+  <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z" />
 </svg></span></span>
                 <?php endforeach; ?>
             </div>
@@ -95,7 +114,48 @@ if($slug !== $_SESSION['_user']->first_name . "-" . $_SESSION['_user']->last_nam
             });
         }
     }
+    function editItem(editId){
+        $("#editMenu").toggleClass("opacity-0 hidden");
+        $.ajax({
+            type: "GET",
+            url: "proccess.php",
+            data: {
+                editId: editId,
+            },
+            dataType: 'json',
+            success: function(data) {
+                $("#editForm > #title").val(data.title);
+                $("#editForm > #url").val(data.url);
+                $("#editForm > #cat_id > #" + data.cat_id).attr("selected",true);
+            }
+        });
+        $("#saveEdit").click((e) => {
+            e.preventDefault();
+            const edit_title = $("#editForm > #title").val();
+            const edit_url = $("#editForm > #url").val();
+            const edit_cat_id = $("#editForm > #cat_id").val();
+            $.ajax({
+                type: "POST",
+                url: "proccess.php",
+                data: {
+                    editId: editId,
+                    edit_title: edit_title,
+                    edit_url: edit_url,
+                    edit_cat_id: edit_cat_id
+                },
+                success: function() {
+                    location.reload();
+                }
+            });
+        });
+
+    }
     $(document).ready(() => {
+        $("#editMenu").click((event) => {
+            if(event.target.id=="editMenu"){
+                $("#editMenu").toggleClass("opacity-0 hidden");
+            }
+        });
 
         $("#create-form").click((event) => {
             if(event.target.id=="create-form"){

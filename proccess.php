@@ -13,3 +13,11 @@ if(isset($_POST['id'])){
 if(isset($_POST['cat'])){
     $bladwijzer->addCat($_POST['cat']);
 }
+
+if(isset($_GET['editId'])){
+    echo json_encode($bladwijzer->getItem($_GET['editId']));
+}
+
+if(isset($_POST['editId'], $_POST['edit_title'], $_POST['edit_url'], $_POST['edit_cat_id'])){
+    $bladwijzer->updateItem($_POST['editId'], $_POST['edit_title'], $_POST['edit_url'], $_POST['edit_cat_id']);
+}

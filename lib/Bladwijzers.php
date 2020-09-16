@@ -42,4 +42,21 @@ class Bladwijzers
         $this->db->bind(":user_id", $_SESSION['_user']->id);
         $this->db->execute();
     }
+    public function getItem($id){
+        $this->db->query("SELECT * FROM items WHERE id = :id AND user_id = :user_id");
+        $this->db->bind(":id", $id);
+        $this->db->bind(":user_id", $_SESSION['_user']->id);
+        return $this->db->single();
+    }
+
+    public function updateItem($editId, $title, $url, $cat_id){
+        $this->db->query("UPDATE items set title = :title, cat_id = :cat_id, url = :url WHERE id = :edit_id AND user_id = :user_id");
+        $this->db->bind(":title", $title);
+        $this->db->bind(":cat_id", $cat_id);
+        $this->db->bind(":url", $url);
+        $this->db->bind(":edit_id", $editId);
+        $this->db->bind(":user_id", $_SESSION['_user']->id);
+        $this->db->execute();
+    }
+
 }

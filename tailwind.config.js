@@ -3,11 +3,7 @@ module.exports = {
     enabled: false,
     content: [
       "./*.html",
-      "./inc/templates/*.php",
-      "./inc/templates/*.html",
       "./*.php",
-      "./post/*.php",
-      "./opdracht/*.php",
       "./js/*.js",
     ],
   },
