@@ -12,6 +12,7 @@
   <component name="ChangeListManager">
     <list default="true" id="612f2e9b-170a-443b-9b35-c5b32cf1da22" name="Default Changelist" comment="-">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bladwijzer.php" beforeDir="false" afterPath="$PROJECT_DIR$/bladwijzer.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/login.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/register.php" beforeDir="false" afterPath="$PROJECT_DIR$/register.php" afterDir="false" />
@@ -86,6 +87,10 @@
       <workItem from="1600077406601" duration="18124000" />
       <workItem from="1600121529815" duration="96000" />
       <workItem from="1600165864287" duration="2024000" />
+      <workItem from="1600181834513" duration="51000" />
+      <workItem from="1600182328503" duration="4000" />
+      <workItem from="1600182365925" duration="606000" />
+      <workItem from="1600242746770" duration="803000" />
     </task>
     <task id="LOCAL-00001" summary="first changes">
       <created>1599937953340</created>

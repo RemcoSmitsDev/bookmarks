@@ -25,11 +25,13 @@ if($slug !== $_SESSION['_user']->first_name . "-" . $_SESSION['_user']->last_nam
 </head>
 
 <body class="antialiased">
-<div class="absolute w-full" style="z-index:-1; background: linear-gradient(90deg, #0072ff 0%, #00d4ff 100%); clip-path: polygon(100% 0, 100% 23%, 0 58%, 0 0); height: 30rem;">
+<div class="absolute w-full hidden md:block" style="z-index:-1; background: linear-gradient(90deg, #0072ff 0%, #00d4ff 100%); clip-path: polygon(100% 0, 100% 23%, 0 58%, 0 0); height: 20rem;">
 </div>
-<nav id="nav" class="relative py-6 px-4 w-full md:flex md:items-center md:justify-between container mx-auto max-w-screen-xl z-auto" >
+<div class="absolute w-full md:hidden h-40" style="z-index:-1; background: linear-gradient(90deg, #0072ff 0%, #00d4ff 100%);">
+</div>
+<nav id="nav" class="relative py-6 px-4 w-full sm:flex sm:items-center sm:justify-between container mx-auto max-w-screen-xl z-auto" >
     <a class="text-3xl font-semibold transform hover:scale-110 text-white" href="./">Bookmarks</a>
-    <div class="mt-4 md:mt-0 space-y-4 md:space-y-0 md:flex-row flex-col flex md:space-x-4">
+    <div class="mt-4 md:mt-0 flex space-x-4">
         <?php if(count($cats) > 0):  ?>
             <div>
                 <button id="showItemMenu" class="px-4 py-2 inline-flex items-center rounded bg-white bg-opacity-25 text-white font-semibold transform hover:scale-110">Create bookmark <span class="mt-px"><svg class="h-6 w-6 mt-px" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -62,7 +64,7 @@ if($slug !== $_SESSION['_user']->first_name . "-" . $_SESSION['_user']->last_nam
         <button id="add" class="px-4 py-2 bg-blue-500 rounded font-semibold text-white">Create new one</button>
     </form>
 </div>
-<div class="px-4 md:mt-48 mt-32 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 w-full container mx-auto max-w-screen-xl">
+<div class="px-4 md:mt-32 mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 w-full container mx-auto max-w-screen-xl">
     <?php foreach ($cats as $cat) : ?>
         <div>
             <h1 class="font-bold text-2xl"><?= $cat->name; ?></h1>
