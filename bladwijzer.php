@@ -25,9 +25,9 @@ if(isset($_GET['logout'])){
 </head>
 
 <body class="antialiased">
-<div class="absolute w-full hidden md:block" style="z-index:-1; background: linear-gradient(90deg, #0072ff 0%, #00d4ff 100%); clip-path: polygon(100% 0, 100% 23%, 0 58%, 0 0); height: 20rem;">
+<div class="absolute w-full hidden md:block pointer-events-none" style="z-index:-1; background: linear-gradient(90deg, #0072ff 0%, #00d4ff 100%); clip-path: polygon(100% 0, 100% 23%, 0 58%, 0 0); height: 20rem;">
 </div>
-<div class="absolute w-full md:hidden h-40" style="z-index:-1; background: linear-gradient(90deg, #0072ff 0%, #00d4ff 100%);">
+<div class="absolute w-full md:hidden h-40 pointer-events-none" style="z-index:-1; background: linear-gradient(90deg, #0072ff 0%, #00d4ff 100%);">
 </div>
 <nav id="nav" class="relative py-6 px-4 w-full sm:flex sm:items-center sm:justify-between container mx-auto max-w-screen-xl z-auto" >
     <a class="text-3xl font-semibold transform hover:scale-110 text-white" href="./">Bookmarks</a>

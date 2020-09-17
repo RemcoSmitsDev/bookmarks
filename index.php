@@ -32,7 +32,7 @@ if(isset($_COOKIE['email'], $_COOKIE['token']) && !empty($_COOKIE['email'] && $_
     <title>Home - All your bookmarks in one place</title>
 </head>
 <body class="antialiased">
-<div class="absolute w-full" style="z-index:-1; background: linear-gradient(90deg, #0072ff 0%, #00d4ff 100%); clip-path: polygon(100% 0, 100% 23%, 0 58%, 0 0); height: 20rem;">
+<div class="absolute w-full pointer-events-none" style="z-index:-1; background: linear-gradient(90deg, #0072ff 0%, #00d4ff 100%); clip-path: polygon(100% 0, 100% 23%, 0 58%, 0 0); height: 20rem;">
 </div>
 <nav id="nav" class="relative py-6 px-4 w-full flex items-center justify-between container mx-auto max-w-screen-xl z-auto" >
     <a class="text-3xl font-semibold transform hover:scale-110 text-white" href="./">Bookmarks</a>
