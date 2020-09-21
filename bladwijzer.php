@@ -9,10 +9,10 @@ if(!isset($_SESSION['_user'])){
 if(isset($_GET['logout'])){
     $user->logout();
 }
-$slug = str_replace("/", "",$_SERVER['REQUEST_URI']);
-if($slug !== $_SESSION['_user']->first_name . "-" . $_SESSION['_user']->last_name){
-    header("location: ". $_SESSION['_user']->first_name . "-" . $_SESSION['_user']->last_name);
-}
+//$slug = str_replace("/", "",$_SERVER['REQUEST_URI']);
+//if($slug !== $_SESSION['_user']->first_name . "-" . $_SESSION['_user']->last_name){
+//    header("location: ". $_SESSION['_user']->first_name . "-" . $_SESSION['_user']->last_name);
+//}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -30,7 +30,9 @@ if($slug !== $_SESSION['_user']->first_name . "-" . $_SESSION['_user']->last_nam
 <div class="absolute w-full md:hidden h-40 pointer-events-none" style="z-index:-1; background: linear-gradient(90deg, #0072ff 0%, #00d4ff 100%);">
 </div>
 <nav id="nav" class="relative py-6 px-4 w-full sm:flex sm:items-center sm:justify-between container mx-auto max-w-screen-xl z-auto" >
-    <a class="text-3xl font-semibold transform hover:scale-110 text-white" href="./">Bookmarks</a>
+    <a class="inline-flex space-x-1 items-center text-3xl font-semibold transform hover:scale-110 text-white" href="./"><svg class="h-10 w-10" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+        </svg><span>Bookmarks</span></a>
     <div class="mt-4 md:mt-0 flex space-x-4">
         <?php if(count($cats) > 0):  ?>
             <div>
@@ -85,7 +87,7 @@ if($slug !== $_SESSION['_user']->first_name . "-" . $_SESSION['_user']->last_nam
             <h1 class="font-bold text-2xl"><?= $cat->name; ?></h1>
             <div class="space-y-2 flex flex-col">
                 <?php foreach ($bladwijzers->GetItemsByCat($cat->id) as $item) : ?>
-                    <span id="<?= $item->id; ?>" class="group inline-flex items-center space-x-4"><a target="_blank" class="flex items-center underline hover:no-underline outline-none" href="<?= $item->url; ?>"><div class="-mb-2 h-6 w-6 bg-no-repeat object-contain" style='background-image: url(https://www.google.com/s2/favicons?domain=<?= $item->url ?>);'></div><span><?= $item->title; ?></span></a>
+                    <span id="<?= $item->id; ?>" class="group inline-flex items-center space-x-4"><a target="_blank" class="flex items-center underline hover:no-underline outline-none" href="<?= $item->url; ?>"><div class="h-6 w-6 bg-no-repeat object-contain bg-center" style='background-image: url(https://www.google.com/s2/favicons?domain=<?= $item->url ?>);'></div><span><?= $item->title; ?></span></a>
                         <span onclick="removeItem(<?= $item->id; ?>)" class="group-hover:block md:hidden h-6 w-6 text-red-500 cursor-pointer transform hover:scale-110">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
@@ -103,121 +105,8 @@ if($slug !== $_SESSION['_user']->first_name . "-" . $_SESSION['_user']->last_nam
 <script type="text/javascript">
     const tl = gsap.timeline({defaults: { ease: 'power1.out' }});
     tl.fromTo('#item', { y: '-70%' }, { y: '0%', opacity: 100, duration: 1 });
-    function removeItem(id){
-        if (confirm("Weet u zeker dat u deze wilt verwijderen?")){
-            $.ajax({
-                type: "POST",
-                url: "proccess.php",
-                data: {
-                    id: id,
-                },
-                success: function() {
-                    $("#" + id).fadeOut();
-                }
-            });
-        }
-    }
-    function editItem(editId){
-        $.ajax({
-            type: "GET",
-            url: "proccess.php",
-            data: {
-                editId: editId,
-            },
-            dataType: 'json',
-            success: function(data) {
-                $("#editForm > #title").val(data.title);
-                $("#editForm > #url").val(data.url);
-                $("#editForm > #cat_id > #" + data.cat_id).attr("selected",true);
-                $("#editMenu").toggleClass("opacity-0 pointer-events-none");
-            }
-        });
-        $("#saveEdit").click((e) => {
-            e.preventDefault();
-            const edit_title = $("#editForm > #title").val();
-            const edit_url = $("#editForm > #url").val();
-            const edit_cat_id = $("#editForm > #cat_id").val();
-            $.ajax({
-                type: "POST",
-                url: "proccess.php",
-                data: {
-                    editId: editId,
-                    edit_title: edit_title,
-                    edit_url: edit_url,
-                    edit_cat_id: edit_cat_id
-                },
-                success: function() {
-                    location.reload();
-                }
-            });
-        });
-
-    }
-    $(document).ready(() => {
-        $("#editMenu").click((event) => {
-            if(event.target.id=="editMenu"){
-                $("#editMenu").toggleClass("opacity-0 pointer-events-none");
-            }
-        });
-
-        $("#create-form").click((event) => {
-            if(event.target.id=="create-form"){
-                $("#create-form").toggleClass("opacity-0 pointer-events-none");
-            }
-        });
-        $("#showItemMenu").click(() => {
-            $("#menu_title").text("Voeg een nieuw item toe!");
-            $("#create-form").toggleClass("opacity-0 pointer-events-none");
-            $("#create-form #cat").addClass("hidden");
-            $("#create-form #url, #title, #cat_id").removeClass("hidden");
-        })
-        $("#showCatMenu").click(() => {
-            $("#menu_title").text("Voeg een nieuw categorie toe!");
-            $("#create-form").toggleClass("opacity-0 pointer-events-none");
-            $("#create-form #cat").removeClass("hidden");
-            $("#create-form #url, #title, #cat_id").addClass("hidden");
-        })
-        $("#add").click((e) => {
-            if($("#create-form #cat").hasClass("hidden")){
-                const title = $("#title").val();
-                const url = $("#url").val();
-                const cat_id = $("#cat_id").val();
-                e.preventDefault();
-                if (title !== "" && url !== "") {
-                    $.ajax({
-                        type: "POST",
-                        url: "proccess.php",
-                        data: {
-                            title: title,
-                            url: url,
-                            cat_id: cat_id,
-                        },
-                        success: function(data) {
-                            $("#create-form").toggleClass("opacity-0 pointer-events-none");
-                            location.reload();
-                        }
-                    });
-                }
-            }else{
-                e.preventDefault();
-                const cat = $("#create-form #cat").val();
-                if(cat !== ""){
-                    $.ajax({
-                        type: "POST",
-                        url: "proccess.php",
-                        data: {
-                            cat: cat,
-                        },
-                        success: function(data) {
-                            $("#create-form").toggleClass("opacity-0 pointer-events-none");
-                            location.reload();
-                        }
-                    });
-                }
-            }
-        });
-    });
 </script>
+<script src="./js/app.js"></script>
 </body>
 
 </html>

@@ -91,4 +91,8 @@ class Login{
         session_destroy();
         header("location: ./");
     }
+    public function GetCurrentUsersCount(){
+        $this->db->query("SELECT COUNT(*) FROM users");
+        return $this->db->rowCount();
+    }
 }

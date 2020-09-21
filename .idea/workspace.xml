@@ -11,11 +11,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="612f2e9b-170a-443b-9b35-c5b32cf1da22" name="Default Changelist" comment="-">
+      <change afterPath="$PROJECT_DIR$/js/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bladwijzer.php" beforeDir="false" afterPath="$PROJECT_DIR$/bladwijzer.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/css/tailwindcss.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/tailwindcss.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/banner.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/banner.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Login.php" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Login.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/login.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/register.php" beforeDir="false" afterPath="$PROJECT_DIR$/register.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,7 +101,8 @@
       <workItem from="1600522472862" duration="2853000" />
       <workItem from="1600529795299" duration="211000" />
       <workItem from="1600623942473" duration="642000" />
-      <workItem from="1600706909324" duration="1307000" />
+      <workItem from="1600706909324" duration="1792000" />
+      <workItem from="1600722000526" duration="2257000" />
     </task>
     <task id="LOCAL-00001" summary="first changes">
       <created>1599937953340</created>

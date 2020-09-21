@@ -31,11 +31,13 @@ if(isset($_COOKIE['email'], $_COOKIE['token']) && !empty($_COOKIE['email'] && $_
           content="Bookmarks, bladwijzers, start.io, bladwijzer, bookmarks system, bookmarks on startpage">
     <title>Home - All your bookmarks in one place</title>
 </head>
-<body class="antialiased">
+<body class="antialiased overflow-x-hidden">
 <div class="absolute w-full pointer-events-none" style="z-index:-1; background: linear-gradient(90deg, #0072ff 0%, #00d4ff 100%); clip-path: polygon(100% 0, 100% 23%, 0 58%, 0 0); height: 20rem;">
 </div>
 <nav id="nav" class="relative py-6 px-4 w-full flex items-center justify-between container mx-auto max-w-screen-xl z-auto" >
-    <a class="text-3xl font-semibold transform hover:scale-110 text-white" href="./">Bookmarks</a>
+    <a class="inline-flex space-x-1 items-center text-3xl font-semibold transform hover:scale-110 text-white" href="./"><svg class="h-10 w-10" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+        </svg><span>Bookmarks</span></a>
     <div class="hidden md:block">
     <?php if(!isset($_SESSION['_user'])):  ?>
     <div class="space-x-4">
