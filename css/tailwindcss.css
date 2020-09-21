@@ -722,6 +722,10 @@ video {
   cursor: pointer;
 }
 
+.block {
+  display: block;
+}
+
 .flex {
   display: flex;
 }

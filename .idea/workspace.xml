@@ -14,10 +14,8 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bladwijzer.php" beforeDir="false" afterPath="$PROJECT_DIR$/bladwijzer.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/css/tailwindcss.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/tailwindcss.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/banner.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/banner.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/login.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/register.php" beforeDir="false" afterPath="$PROJECT_DIR$/register.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tailwind.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/tailwind.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,7 +94,11 @@
       <workItem from="1600244049570" duration="160000" />
       <workItem from="1600261682708" duration="7676000" />
       <workItem from="1600284149971" duration="404000" />
-      <workItem from="1600359603190" duration="432000" />
+      <workItem from="1600359603190" duration="1556000" />
+      <workItem from="1600522472862" duration="2853000" />
+      <workItem from="1600529795299" duration="211000" />
+      <workItem from="1600623942473" duration="642000" />
+      <workItem from="1600706909324" duration="1307000" />
     </task>
     <task id="LOCAL-00001" summary="first changes">
       <created>1599937953340</created>

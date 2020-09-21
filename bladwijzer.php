@@ -9,10 +9,10 @@ if(!isset($_SESSION['_user'])){
 if(isset($_GET['logout'])){
     $user->logout();
 }
-//$slug = str_replace("/", "",$_SERVER['REQUEST_URI']);
-//if($slug !== $_SESSION['_user']->first_name . "-" . $_SESSION['_user']->last_name){
-//    header("location: ". $_SESSION['_user']->first_name . "-" . $_SESSION['_user']->last_name);
-//}
+$slug = str_replace("/", "",$_SERVER['REQUEST_URI']);
+if($slug !== $_SESSION['_user']->first_name . "-" . $_SESSION['_user']->last_name){
+    header("location: ". $_SESSION['_user']->first_name . "-" . $_SESSION['_user']->last_name);
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -48,7 +48,7 @@ if(isset($_GET['logout'])){
             </button>
     </div>
 </nav>
-<div id="create-form" class="flex items-center h-screen opacity-0 hidden fixed inset-0 bg-black bg-opacity-50 transition-opacity ease-in duration-150 z-10">
+<div id="create-form" class="flex items-center h-screen opacity-0 pointer-events-none fixed inset-0 bg-black bg-opacity-50 transition-opacity ease-in duration-150 z-10">
     <form id="fromCR"
           class="space-y-4 w-full flex flex-col px-10 pt-10 pb-20 mx-auto max-w-lg bg-white"
           method="POST">
@@ -64,7 +64,7 @@ if(isset($_GET['logout'])){
         <button id="add" class="px-4 py-2 bg-blue-500 rounded font-semibold text-white">Create new one</button>
     </form>
 </div>
-<div id="editMenu" class="flex items-center h-screen opacity-0 hidden fixed inset-0 bg-black bg-opacity-50 transition-opacity ease-in duration-150 z-10">
+<div id="editMenu" class="flex items-center h-screen opacity-0 pointer-events-none fixed inset-0 bg-black bg-opacity-50 transition-opacity ease-in duration-150 z-10">
     <form id="editForm"
           class="space-y-4 w-full flex flex-col px-10 pt-10 pb-20 mx-auto max-w-lg bg-white"
           method="POST">
@@ -81,7 +81,7 @@ if(isset($_GET['logout'])){
 </div>
 <div class="px-4 md:mt-32 mt-6 sm:mt-20 mb-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 w-full container mx-auto max-w-screen-xl">
     <?php foreach ($cats as $cat) : ?>
-        <div>
+        <div id="item" class="opacity-0">
             <h1 class="font-bold text-2xl"><?= $cat->name; ?></h1>
             <div class="space-y-2 flex flex-col">
                 <?php foreach ($bladwijzers->GetItemsByCat($cat->id) as $item) : ?>
@@ -98,8 +98,11 @@ if(isset($_GET['logout'])){
     <?php endforeach; ?>
 
 </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
 <script type="text/javascript">
+    const tl = gsap.timeline({defaults: { ease: 'power1.out' }});
+    tl.fromTo('#item', { y: '-70%' }, { y: '0%', opacity: 100, duration: 1 });
     function removeItem(id){
         if (confirm("Weet u zeker dat u deze wilt verwijderen?")){
             $.ajax({
@@ -115,7 +118,6 @@ if(isset($_GET['logout'])){
         }
     }
     function editItem(editId){
-        $("#editMenu").toggleClass("opacity-0 hidden");
         $.ajax({
             type: "GET",
             url: "proccess.php",
@@ -127,6 +129,7 @@ if(isset($_GET['logout'])){
                 $("#editForm > #title").val(data.title);
                 $("#editForm > #url").val(data.url);
                 $("#editForm > #cat_id > #" + data.cat_id).attr("selected",true);
+                $("#editMenu").toggleClass("opacity-0 pointer-events-none");
             }
         });
         $("#saveEdit").click((e) => {
@@ -153,24 +156,24 @@ if(isset($_GET['logout'])){
     $(document).ready(() => {
         $("#editMenu").click((event) => {
             if(event.target.id=="editMenu"){
-                $("#editMenu").toggleClass("opacity-0 hidden");
+                $("#editMenu").toggleClass("opacity-0 pointer-events-none");
             }
         });
 
         $("#create-form").click((event) => {
             if(event.target.id=="create-form"){
-                $("#create-form").toggleClass("opacity-0 hidden");
+                $("#create-form").toggleClass("opacity-0 pointer-events-none");
             }
         });
         $("#showItemMenu").click(() => {
             $("#menu_title").text("Voeg een nieuw item toe!");
-            $("#create-form").toggleClass("opacity-0 hidden");
+            $("#create-form").toggleClass("opacity-0 pointer-events-none");
             $("#create-form #cat").addClass("hidden");
             $("#create-form #url, #title, #cat_id").removeClass("hidden");
         })
         $("#showCatMenu").click(() => {
             $("#menu_title").text("Voeg een nieuw categorie toe!");
-            $("#create-form").toggleClass("opacity-0 hidden");
+            $("#create-form").toggleClass("opacity-0 pointer-events-none");
             $("#create-form #cat").removeClass("hidden");
             $("#create-form #url, #title, #cat_id").addClass("hidden");
         })
@@ -190,7 +193,7 @@ if(isset($_GET['logout'])){
                             cat_id: cat_id,
                         },
                         success: function(data) {
-                            $("#create-form").toggleClass("opacity-0 hidden");
+                            $("#create-form").toggleClass("opacity-0 pointer-events-none");
                             location.reload();
                         }
                     });
@@ -206,7 +209,7 @@ if(isset($_GET['logout'])){
                             cat: cat,
                         },
                         success: function(data) {
-                            $("#create-form").toggleClass("opacity-0 hidden");
+                            $("#create-form").toggleClass("opacity-0 pointer-events-none");
                             location.reload();
                         }
                     });
