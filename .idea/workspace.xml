@@ -11,12 +11,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="612f2e9b-170a-443b-9b35-c5b32cf1da22" name="Default Changelist" comment="-">
-      <change afterPath="$PROJECT_DIR$/js/app.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/logo.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bladwijzer.php" beforeDir="false" afterPath="$PROJECT_DIR$/bladwijzer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/tailwindcss.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/tailwindcss.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Login.php" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Login.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/login.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/register.php" beforeDir="false" afterPath="$PROJECT_DIR$/register.php" afterDir="false" />
     </list>
@@ -26,7 +25,9 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="ComposerSettings">
-    <execution />
+    <execution>
+      <executable path="composer" />
+    </execution>
   </component>
   <component name="Git.Settings">
     <option name="PUSH_TAGS">
@@ -36,6 +37,12 @@
       </GitPushTagMode>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="JsFlowSettings">
+    <service-enabled>true</service-enabled>
+    <exe-path />
+    <other-services-enabled>true</other-services-enabled>
+    <auto-save>true</auto-save>
   </component>
   <component name="ProjectId" id="1hBhG99kvTsjjivTVQOFaQjpKiZ" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -53,7 +60,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="watcher.settings" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -102,7 +109,9 @@
       <workItem from="1600529795299" duration="211000" />
       <workItem from="1600623942473" duration="642000" />
       <workItem from="1600706909324" duration="1792000" />
-      <workItem from="1600722000526" duration="2257000" />
+      <workItem from="1600722000526" duration="2456000" />
+      <workItem from="1600770691991" duration="92000" />
+      <workItem from="1600790745739" duration="8928000" />
     </task>
     <task id="LOCAL-00001" summary="first changes">
       <created>1599937953340</created>
@@ -143,18 +152,24 @@
       <screen x="0" y="23" width="1792" height="1028" />
     </state>
     <state x="616" y="346" key="#com.intellij.fileTypes.FileTypeChooser/0.23.1792.1028@0.23.1792.1028" timestamp="1599937925446" />
+    <state x="633" y="324" key="#com.intellij.ide.scriptingContext.ui.PerFileMappingsDialogWrapper" timestamp="1600805858367">
+      <screen x="0" y="23" width="1792" height="1030" />
+    </state>
+    <state x="633" y="324" key="#com.intellij.ide.scriptingContext.ui.PerFileMappingsDialogWrapper/0.23.1792.1030@0.23.1792.1030" timestamp="1600805858367" />
     <state x="634" y="291" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1599999954159">
       <screen x="0" y="23" width="1792" height="1028" />
     </state>
     <state x="634" y="291" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.1792.1028@0.23.1792.1028" timestamp="1599999954159" />
-    <state x="650" y="456" key="ComposerInitDialogKey" timestamp="1599909562648">
-      <screen x="0" y="23" width="1792" height="1028" />
+    <state x="650" y="457" key="ComposerInitDialogKey" timestamp="1600805221000">
+      <screen x="0" y="23" width="1792" height="1030" />
     </state>
     <state x="650" y="456" key="ComposerInitDialogKey/0.23.1792.1028@0.23.1792.1028" timestamp="1599909562648" />
-    <state x="397" y="176" key="SettingsEditor" timestamp="1599911320763">
-      <screen x="0" y="23" width="1792" height="1028" />
+    <state x="650" y="457" key="ComposerInitDialogKey/0.23.1792.1030@0.23.1792.1030" timestamp="1600805221000" />
+    <state x="397" y="176" key="SettingsEditor" timestamp="1600805970435">
+      <screen x="0" y="23" width="1792" height="1030" />
     </state>
     <state x="397" y="176" key="SettingsEditor/0.23.1792.1028@0.23.1792.1028" timestamp="1599911320763" />
+    <state x="397" y="176" key="SettingsEditor/0.23.1792.1030@0.23.1792.1030" timestamp="1600805970435" />
     <state x="496" y="277" key="Vcs.Push.Dialog.v2" timestamp="1600003024645">
       <screen x="0" y="23" width="1792" height="1028" />
     </state>

@@ -13,6 +13,7 @@ function removeItem(id){
     }
 }
 function editItem(editId){
+    $('#editForm > #cat_id > option:selected').removeAttr('selected');
     $.ajax({
         type: "GET",
         url: "proccess.php",
@@ -61,13 +62,13 @@ $(document).ready(() => {
         }
     });
     $("#showItemMenu").click(() => {
-        $("#menu_title").text("Voeg een nieuw item toe!");
+        $("#menu_title").text("Create a new bookmark!");
         $("#create-form").toggleClass("opacity-0 pointer-events-none");
         $("#create-form #cat").addClass("hidden");
         $("#create-form #url, #title, #cat_id").removeClass("hidden");
     })
     $("#showCatMenu").click(() => {
-        $("#menu_title").text("Voeg een nieuw categorie toe!");
+        $("#menu_title").text("Create a new category!");
         $("#create-form").toggleClass("opacity-0 pointer-events-none");
         $("#create-form #cat").removeClass("hidden");
         $("#create-form #url, #title, #cat_id").addClass("hidden");

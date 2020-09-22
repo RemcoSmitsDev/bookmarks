@@ -16,6 +16,7 @@ if(isset($_COOKIE['email'], $_COOKIE['token']) && !empty($_COOKIE['email'] && $_
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="shortcut icon" href="./images/logo.svg">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -112,7 +113,7 @@ if(isset($_COOKIE['email'], $_COOKIE['token']) && !empty($_COOKIE['email'] && $_
     </div>
 </section>
 <?php endif; ?>
-<script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
 <script type="text/javascript">
     const tl = gsap.timeline({defaults: { ease: 'power1.out' }});
