@@ -18,21 +18,21 @@ class Login{
         for ($i = 0; $i < 20; $i++) {
             $randstring .= $characters[rand(0, $stringlengte - 1)];
         }
-        $this->db->query("UPDATE users set token = :token WHERE email = :email");
-        $this->db->bind(":token", $randstring);
-        $this->db->bind(":email", $_SESSION['_user']->email);
-        $this->db->execute();
-        return $randstring;
+        if(!$_SESSION['_user']->token){
+            $this->db->query("UPDATE users set token = :token WHERE email = :email");
+            $this->db->bind(":token", $randstring);
+            $this->db->bind(":email", $_SESSION['_user']->email);
+            $this->db->execute();
+            return $randstring;
+        }else{
+            return $_SESSION['_user']->token;
+        }
+
     }
 
     public function startCookie(){
-        if(!isset($_COOKIE['email'], $_COOKIE['token'])){
-            setcookie("email", $_SESSION['_user']->email, time() + (10 * 365 * 24 * 60 * 60), "/");
-            setcookie("token", $this->createToken(), time() + (10 * 365 * 24 * 60 * 60), "/");
-        }else{
-            setcookie("email", $_SESSION['_user']->email, time() + (10 * 365 * 24 * 60 * 60), "/");
-            setcookie("token", $_SESSION['_user']->token, time() + (10 * 365 * 24 * 60 * 60), "/");
-        }
+        setcookie("email", $_SESSION['_user']->email, time() + (10 * 365 * 24 * 60 * 60), "/");
+        setcookie("token", $this->createToken(), time() + (10 * 365 * 24 * 60 * 60), "/");
     }
 
     public function HandleLogin($email, $password){
