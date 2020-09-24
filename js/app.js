@@ -22,6 +22,7 @@ function editItem(editId){
         },
         dataType: 'json',
         success: function(data) {
+            $("#editForm > #title, #editForm > #cat_id").removeClass("hidden");
             $("#editForm > #title").val(data.title);
             $("#editForm > #url").val(data.url);
             $("#editForm > #cat_id > #" + data.cat_id).attr("selected",true);
@@ -49,7 +50,6 @@ function editItem(editId){
     });
 
 }
-$(document).ready(() => {
     $("#editMenu").click((event) => {
         if(event.target.id=="editMenu"){
             $("#editMenu").toggleClass("opacity-0 pointer-events-none");
@@ -112,4 +112,3 @@ $(document).ready(() => {
             }
         }
     });
-});

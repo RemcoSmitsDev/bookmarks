@@ -9,11 +9,13 @@ if(!isset($_SESSION['_user'])){
 }
 if(isset($_GET['logout'])){
     $user->logout();
+    exit;
 }
-$slug = str_replace("/", "",$_SERVER['REQUEST_URI']);
-if($slug !== $_SESSION['_user']->first_name . "-" . $_SESSION['_user']->last_name){
-    header("location: ". $_SESSION['_user']->first_name . "-" . $_SESSION['_user']->last_name);
-}
+
+//$slug = str_replace("/", "",$_SERVER['REQUEST_URI']);
+//if($slug !== $_SESSION['_user']->first_name . "-" . $_SESSION['_user']->last_name){
+//    header("location: ". $_SESSION['_user']->first_name . "-" . $_SESSION['_user']->last_name);
+//}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -124,9 +126,30 @@ if($slug !== $_SESSION['_user']->first_name . "-" . $_SESSION['_user']->last_nam
         </div>
     <?php endforeach; ?>
 </div>
-
+<?php if(isset($_COOKIE['message'])): ?>
+<div id="message" class="m-6 p-4 fixed bottom-0 left-0 rounded shadow-lg opacity-0 pointer-events-none transition-opacity duration-500">
+    <div class="flex items-center space-x-2">
+        <svg class="h-6 w-6 text-green-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+        <p class="leading-relaxed text-sm font-semibold text-gray-800"><?= json_decode($_COOKIE['message'])->type; ?></p>
+    </div>
+    <div class="pl-8">
+        <p class="leading-relaxed text-sm text-gray-700"><?= json_decode($_COOKIE['message'])->message; ?></p>
+    </div>
+</div>
+<?php endif; ?>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<?php if(isset($_COOKIE['message'])): ?>
+<script type="text/javascript">
+    $(document).ready(() => {
+        $("#message").toggleClass('opacity-0 pointer-events-none').delay(5000).queue(() => {
+            $("#message").toggleClass('opacity-0 pointer-events-none');
+        });
+    });
+</script>
+<?php endif; ?>
 <script type="text/javascript">
     const tl = gsap.timeline({defaults: { ease: 'power1.out' }});
     tl.fromTo('#item', { y: '-70%' }, { y: '0%', opacity: 100, duration: 1 });

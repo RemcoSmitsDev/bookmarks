@@ -1,9 +1,10 @@
 <?php
 class Login{
     private $db;
-
+    public $message;
     public function __construct(){
         $this->db = new Database();
+        $this->message = new Message();
     }
     public function checkToken($email, $token){
             $this->db->query("SELECT * FROM users WHERE token = :token AND email = :email LIMIT 1");
@@ -40,6 +41,7 @@ class Login{
             if($user = $this->CheckIfUserExist($email, md5($password))){
                 $_SESSION['_user'] = $user;
                 $this->startCookie();
+                $this->message->CreateSessionMessage('logged in', 'You are now logged! You can now view/create all your bookmarks');
                 return $user;
             }else{
                 return false;
@@ -51,6 +53,7 @@ class Login{
             if($user = $this->CheckIfUserExistWithToken($email, $token)){
                 $_SESSION['_user'] = $user;
                 $this->startCookie();
+                $this->message->CreateSessionMessage('logged in', 'You are now logged! You can now view/create all your bookmarks');
                 return $user;
             }else{
                 return false;

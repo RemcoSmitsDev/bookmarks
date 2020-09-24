@@ -2,10 +2,12 @@
 class Bladwijzers
 {
     private $db;
+    public $message;
 
     public function __construct()
     {
         $this->db = new Database();
+        $this->message = new Message();
     }
 
     public function GetItemsByCat($id)
@@ -29,18 +31,21 @@ class Bladwijzers
         $this->db->bind(":cat_id", $cat_id);
         $this->db->bind(":user_id", $_SESSION['_user']->id);
         $this->db->execute();
+        $this->message->CreateSessionMessage('Added a bookmark', '');
     }
     public function removeItem($id){
         $this->db->query("DELETE FROM items WHERE id = :id AND user_id = :user_id");
         $this->db->bind(":id", $id);
         $this->db->bind(":user_id", $_SESSION['_user']->id);
         $this->db->execute();
+        $this->message->CreateSessionMessage('removed a bookmark', '');
     }
     public function addCat($cat){
         $this->db->query("INSERT INTO categorie (name, user_id) values (:cat, :user_id)");
         $this->db->bind(":cat", $cat);
         $this->db->bind(":user_id", $_SESSION['_user']->id);
         $this->db->execute();
+        $this->message->CreateSessionMessage('added a category', 'You can now add bookmarks with the category: ' . $cat);
     }
     public function getItem($id){
         $this->db->query("SELECT * FROM items WHERE id = :id AND user_id = :user_id");
@@ -57,6 +62,7 @@ class Bladwijzers
         $this->db->bind(":edit_id", $editId);
         $this->db->bind(":user_id", $_SESSION['_user']->id);
         $this->db->execute();
+        $this->message->CreateSessionMessage('updated ' . $title, '');
     }
 
 }
