@@ -26,8 +26,8 @@ if(isset($_POST['first_name'],$_POST['last_name'], $_POST['email'],$_POST['passw
 <html lang="en">
 <head>
     <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-178297120-2"></script>
-    <script>
+    <script defer async src="https://www.googletagmanager.com/gtag/js?id=UA-178297120-2"></script>
+    <script defer>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
@@ -40,7 +40,7 @@ if(isset($_POST['first_name'],$_POST['last_name'], $_POST['email'],$_POST['passw
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="./css/tailwindcss.css">
+    <link rel="stylesheet" media="all" href="./css/tailwindcss.css">
     <meta property="og:description" content="All your bookmarks in one place">
     <meta property="og:title" content="Create an account - All your bookmarks in one place">
     <meta property="og:type" content="website">

@@ -16,8 +16,8 @@ if(isset($_COOKIE['email'], $_COOKIE['token']) && !empty($_COOKIE['email'] && $_
 <html lang="en">
 <head>
     <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-178297120-2"></script>
-    <script>
+    <script defer async src="https://www.googletagmanager.com/gtag/js?id=UA-178297120-2"></script>
+    <script defer>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
@@ -30,7 +30,7 @@ if(isset($_COOKIE['email'], $_COOKIE['token']) && !empty($_COOKIE['email'] && $_
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="./css/tailwindcss.css">
+    <link rel="stylesheet" media="all" href="./css/tailwindcss.css" >
     <meta property="og:description" content="All your bookmarks in one place">
     <meta property="og:title" content="Homepage - All your bookmarks in one place">
     <meta property="og:type" content="website">
@@ -123,21 +123,17 @@ if(isset($_COOKIE['email'], $_COOKIE['token']) && !empty($_COOKIE['email'] && $_
     </div>
 </section>
 <?php endif; ?>
-<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
-<script type="text/javascript">
+<script defer src="./js/jquery.js"></script>
+<script defer type="text/javascript">
     const tl = gsap.timeline({defaults: { ease: 'power1.out' }});
-    tl.fromTo('#banner > #text', { y: '-100%', opacity: 0 }, { y: '0%', opacity: 100, duration: 1 });
-    tl.fromTo('#banner > #banner-img', { x: '100%', opacity: 0 }, { x: '0%', opacity: 100, duration: 1 }, '-=.5');
-    $("#toggleMenu").click((e) => {
-        $("#menu").removeClass("hidden");
-        $("#menu").removeClass("opacity-0");
-        $("body").addClass("overflow-hidden");
-    });
-    $("#closeMenu").click((e) => {
-        $("#menu").addClass("hidden");
-        $("#menu").addClass("opacity-0");
-        $("body").removeClass("overflow-hidden");
+    tl.fromTo('#banner > #text', { y: '-100%', opacity: 0 }, { y: '0%', opacity: 100, duration: 1 })
+    .fromTo('#banner > #banner-img', { x: '100%', opacity: 0 }, { x: '0%', opacity: 100, duration: 1 }, '-=.5');
+    $("#toggleMenu, #closeMenu").click(() => {
+        $("#menu").toggleClass("hidden");
+        $("#menu").toggleClass("opacity-0");
+        $("body").toggleClass("overflow-hidden");
+        console.log("close");
     });
 </script>
 </body>

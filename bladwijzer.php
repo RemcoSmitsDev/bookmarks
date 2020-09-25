@@ -21,7 +21,6 @@ if(isset($_GET['logout'])){
 <html lang="en">
 
 <head>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-178297120-2"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -30,8 +29,6 @@ if(isset($_GET['logout'])){
 
         gtag('config', 'UA-178297120-2');
     </script>
-
-
     <meta charset="UTF-8">
     <link rel="shortcut icon" href="./images/logo.svg">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -103,13 +100,13 @@ if(isset($_GET['logout'])){
         <button id="saveEdit" class="px-4 py-2 bg-blue-500 rounded font-semibold text-white">Save changes</button>
     </form>
 </div>
-<div class="px-4 md:mt-32 mt-6 sm:mt-20 mb-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 w-full container mx-auto max-w-screen-xl">
-    <?php foreach ($cats as $cat) : ?>
-        <div id="item" class="opacity-0">
-            <h1 class="font-bold text-2xl"><?= $cat->name; ?></h1>
-            <div class="space-y-2 flex flex-col">
-                <?php foreach ($bladwijzers->GetItemsByCat($cat->id) as $item) : ?>
-                    <span id="<?= $item->id; ?>" class="group inline-flex items-center space-x-4"><a target="_blank" class="flex items-center underline hover:no-underline outline-none" href="<?= $item->url; ?>"><div class="h-6 w-6 bg-no-repeat object-contain bg-center" style='background-image: url(https://www.google.com/s2/favicons?domain=<?= $item->url ?>);'></div><span><?= $item->title; ?></span></a>
+    <div class="px-4 md:mt-32 mt-6 sm:mt-20 mb-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 w-full container mx-auto max-w-screen-xl">
+        <?php foreach ($cats as $cat) : ?>
+            <div id="item" class="opacity-0">
+                <h1 class="font-bold text-2xl"><?= $cat->name; ?></h1>
+                <div class="space-y-2 flex flex-col">
+                    <?php foreach ($bladwijzers->GetItemsByCat($cat->id) as $item) : ?>
+                        <span id="<?= $item->id; ?>" class="group inline-flex items-center space-x-4"><a target="_blank" class="flex items-center underline hover:no-underline outline-none" href="<?= $item->url; ?>"><div class="h-6 w-6 bg-no-repeat object-contain bg-center" style='background-image: url(https://www.google.com/s2/favicons?domain=<?= $item->url ?>);'></div><span><?= $item->title; ?></span></a>
                         <span onclick="removeItem(<?= $item->id; ?>)" class="group-hover:block md:hidden h-6 w-6 text-red-500 cursor-pointer transform hover:scale-110">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
@@ -121,13 +118,13 @@ if(isset($_GET['logout'])){
                             </svg>
                         </span>
                     </span>
-                <?php endforeach; ?>
+                    <?php endforeach; ?>
+                </div>
             </div>
-        </div>
-    <?php endforeach; ?>
-</div>
+        <?php endforeach; ?>
+    </div>
 <?php if(isset($_COOKIE['message'])): ?>
-<div id="message" class="m-6 p-4 fixed bottom-0 left-0 rounded shadow-lg opacity-0 pointer-events-none transition-opacity duration-500">
+<div id="message" class="m-6 p-4 fixed bottom-0 left-0 rounded shadow-lg opacity-0 pointer-events-none transition-opacity ease-in duration-150 z-10 bg-white">
     <div class="flex items-center space-x-2">
         <svg class="h-6 w-6 text-green-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -140,20 +137,18 @@ if(isset($_GET['logout'])){
 </div>
 <?php endif; ?>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
-<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="./js/jquery.js"></script>
 <?php if(isset($_COOKIE['message'])): ?>
-<script type="text/javascript">
-    $(document).ready(() => {
-        $("#message").toggleClass('opacity-0 pointer-events-none').delay(5000).queue(() => {
-            $("#message").toggleClass('opacity-0 pointer-events-none');
-        });
+<script defer type="text/javascript">
+    $("#message").toggleClass('opacity-0 pointer-events-none').delay(5000).queue(() => {
+        $("#message").toggleClass('opacity-0 pointer-events-none');
     });
 </script>
 <?php endif; ?>
-<script type="text/javascript">
+<script defer type="text/javascript">
     const tl = gsap.timeline({defaults: { ease: 'power1.out' }});
     tl.fromTo('#item', { y: '-70%' }, { y: '0%', opacity: 100, duration: 1 });
 </script>
-<script src="./js/app.js"></script>
+<script defer src="./js/app.js"></script>
 </body>
 </html>
