@@ -668,6 +668,12 @@ video {
   margin-bottom: calc(5rem * var(--space-y-reverse));
 }
 
+.divide-y > :not(template) ~ :not(template) {
+  --divide-y-reverse: 0;
+  border-top-width: calc(1px * calc(1 - var(--divide-y-reverse)));
+  border-bottom-width: calc(1px * var(--divide-y-reverse));
+}
+
 .appearance-none {
   -webkit-appearance: none;
      -moz-appearance: none;
@@ -692,6 +698,12 @@ video {
   background-color: rgba(66, 153, 225, var(--bg-opacity));
 }
 
+.hover\:bg-gray-100:hover {
+  --bg-opacity: 1;
+  background-color: #f7fafc;
+  background-color: rgba(247, 250, 252, var(--bg-opacity));
+}
+
 .bg-opacity-25 {
   --bg-opacity: 0.25;
 }
@@ -710,6 +722,10 @@ video {
 
 .rounded {
   border-radius: 0.25rem;
+}
+
+.rounded-md {
+  border-radius: 0.375rem;
 }
 
 .rounded-full {
@@ -808,6 +824,10 @@ video {
   font-weight: 700;
 }
 
+.font-extrabold {
+  font-weight: 800;
+}
+
 .h-5 {
   height: 1.25rem;
 }
@@ -826,6 +846,10 @@ video {
 
 .h-40 {
   height: 10rem;
+}
+
+.h-64 {
+  height: 16rem;
 }
 
 .h-auto {
@@ -860,6 +884,10 @@ video {
   font-size: 3rem;
 }
 
+.leading-5 {
+  line-height: 1.25rem;
+}
+
 .leading-tight {
   line-height: 1.25;
 }
@@ -885,6 +913,10 @@ video {
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
+}
+
+.mt-2 {
+  margin-top: 0.5rem;
 }
 
 .mt-4 {
@@ -939,6 +971,10 @@ video {
   max-width: 1280px;
 }
 
+.min-w-full {
+  min-width: 100%;
+}
+
 .object-contain {
   -o-object-fit: contain;
      object-fit: contain;
@@ -956,12 +992,21 @@ video {
   overflow: hidden;
 }
 
+.overflow-y-auto {
+  overflow-y: auto;
+}
+
 .overflow-x-hidden {
   overflow-x: hidden;
 }
 
 .p-4 {
   padding: 1rem;
+}
+
+.py-1 {
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
 }
 
 .py-2 {
@@ -1043,6 +1088,10 @@ video {
   left: 0;
 }
 
+.right-0 {
+  right: 0;
+}
+
 .bottom-0 {
   bottom: 0;
 }
@@ -1053,6 +1102,14 @@ video {
 
 .resize {
   resize: both;
+}
+
+.shadow-xs {
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.05);
+}
+
+.shadow-sm {
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
 }
 
 .shadow-lg {
@@ -1103,6 +1160,24 @@ video {
   color: rgba(104, 211, 145, var(--text-opacity));
 }
 
+.hover\:text-gray-300:hover {
+  --text-opacity: 1;
+  color: #e2e8f0;
+  color: rgba(226, 232, 240, var(--text-opacity));
+}
+
+.hover\:text-gray-900:hover {
+  --text-opacity: 1;
+  color: #1a202c;
+  color: rgba(26, 32, 44, var(--text-opacity));
+}
+
+.first\:text-gray-900:first-child {
+  --text-opacity: 1;
+  color: #1a202c;
+  color: rgba(26, 32, 44, var(--text-opacity));
+}
+
 .underline {
   text-decoration: underline;
 }
@@ -1134,6 +1209,10 @@ video {
 
 .w-10 {
   width: 2.5rem;
+}
+
+.w-64 {
+  width: 16rem;
 }
 
 .w-full {
@@ -1172,6 +1251,10 @@ video {
   transform: translateX(var(--transform-translate-x)) translateY(var(--transform-translate-y)) rotate(var(--transform-rotate)) skewX(var(--transform-skew-x)) skewY(var(--transform-skew-y)) scaleX(var(--transform-scale-x)) scaleY(var(--transform-scale-y));
 }
 
+.origin-top-right {
+  transform-origin: top right;
+}
+
 .hover\:scale-110:hover {
   --transform-scale-x: 1.1;
   --transform-scale-y: 1.1;
@@ -1181,12 +1264,20 @@ video {
   transition-property: all;
 }
 
+.transition {
+  transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform;
+}
+
 .transition-opacity {
   transition-property: opacity;
 }
 
 .ease-in {
   transition-timing-function: cubic-bezier(0.4, 0, 1, 1);
+}
+
+.ease-in-out {
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .duration-150 {
@@ -1261,6 +1352,19 @@ video {
     -webkit-animation-timing-function: cubic-bezier(0,0,0.2,1);
             animation-timing-function: cubic-bezier(0,0,0.2,1);
   }
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+
+.remove-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+
+.remove-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
 }
 
 @media (min-width: 640px) {
@@ -1348,6 +1452,10 @@ video {
 
   .md\:block {
     display: block;
+  }
+
+  .md\:inline-block {
+    display: inline-block;
   }
 
   .md\:flex {

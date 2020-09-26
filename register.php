@@ -40,7 +40,7 @@ if(isset($_POST['first_name'],$_POST['last_name'], $_POST['email'],$_POST['passw
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" media="all" href="./css/tailwindcss.css">
+    <link rel="stylesheet" type="text/css" media="all" href="./css/tailwindcss.css">
     <meta property="og:description" content="All your bookmarks in one place">
     <meta property="og:title" content="Create an account - All your bookmarks in one place">
     <meta property="og:type" content="website">
@@ -71,7 +71,7 @@ if(isset($_POST['first_name'],$_POST['last_name'], $_POST['email'],$_POST['passw
         <input class="px-4 py-2 border outline-none rounded appearance-none" type="text" name="email" placeholder="Email" required>
         <input class="px-4 py-2 border outline-none rounded appearance-none" type="password" name="password" placeholder="Password" required>
         <button class="px-4 py-2 rounded font-semibold" type="submit">Create your account</button>
-        <a class="text-sm leading-relaxed text-center" href="login">You already have an account!? Log in</a>
+        <a class="text-sm leading-relaxed text-center" href="login">You already have an account? Log in</a>
     </form>
 </section>
 </body>

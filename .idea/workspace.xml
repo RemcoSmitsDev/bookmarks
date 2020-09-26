@@ -11,13 +11,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="612f2e9b-170a-443b-9b35-c5b32cf1da22" name="Default Changelist" comment="-">
-      <change afterPath="$PROJECT_DIR$/js/jquery.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js/bladwijzer.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js/gsap.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js/message.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.htaccess" beforeDir="false" afterPath="$PROJECT_DIR$/.htaccess" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bladwijzer.php" beforeDir="false" afterPath="$PROJECT_DIR$/bladwijzer.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/css/tailwindcss.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/tailwindcss.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Login.php" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Login.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Bladwijzers.php" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Bladwijzers.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Message.php" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Message.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/login.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/proccess.php" beforeDir="false" afterPath="$PROJECT_DIR$/proccess.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/register.php" beforeDir="false" afterPath="$PROJECT_DIR$/register.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tailwind.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/tailwind.config.js" afterDir="false" />
     </list>
@@ -116,7 +124,9 @@
       <workItem from="1600790745739" duration="9105000" />
       <workItem from="1600893757683" duration="751000" />
       <workItem from="1600950687341" duration="678000" />
-      <workItem from="1600980912419" duration="12136000" />
+      <workItem from="1600980912419" duration="12459000" />
+      <workItem from="1601035949043" duration="1038000" />
+      <workItem from="1601116369687" duration="15687000" />
     </task>
     <task id="LOCAL-00001" summary="first changes">
       <created>1599937953340</created>

@@ -39,7 +39,7 @@ if(isset($_POST['email'], $_POST['password']) && $_POST['email'] !== "" && $_POS
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" media="all" href="./css/tailwindcss.css" >
+    <link rel="stylesheet" media="all" type="text/css" href="./css/tailwindcss.css" >
     <meta property="og:description" content="All your bookmarks in one place">
     <meta property="og:title" content="Login - All your bookmarks in one place">
     <meta property="og:type" content="website">
@@ -68,7 +68,7 @@ if(isset($_POST['email'], $_POST['password']) && $_POST['email'] !== "" && $_POS
         <input class="px-4 py-2 border outline-none rounded appearance-none" type="text" name="email" placeholder="Email" value="<?php if(isset($_COOKIE['email'])){echo $_COOKIE['email']; } ?>" required>
         <input class="px-4 py-2 border outline-none rounded appearance-none" type="password" name="password" placeholder="Password" value="" required>
         <button class="px-4 py-2 rounded font-semibold" type="submit">Log In</button>
-        <a class="text-sm leading-relaxed text-center" href="register">If you don't have an account!? Make one now</a>
+        <a class="text-sm leading-relaxed text-center" href="register">If you don't have an account? Make one now</a>
     </form>
 </section>
 

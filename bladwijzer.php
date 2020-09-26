@@ -3,6 +3,8 @@ require_once "./config/init.php";
 $bladwijzers = new Bladwijzers();
 $user = new Login();
 $cats = $bladwijzers->GetAllCats();
+$messages = new Message();
+$updates = $messages->getUpdates();
 if(!isset($_SESSION['_user'])){
     header("location: ./login.php");
     exit;
@@ -33,7 +35,7 @@ if(isset($_GET['logout'])){
     <link rel="shortcut icon" href="./images/logo.svg">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bladwijzers - Your bookmarks at one place</title>
-    <link rel="stylesheet" media="all" href="./css/tailwindcss.css">
+    <link rel="stylesheet" type="text/css" media="all" href="./css/tailwindcss.css">
 </head>
 
 <body class="antialiased">
@@ -42,12 +44,12 @@ if(isset($_GET['logout'])){
 <div class="absolute w-full md:hidden h-40 pointer-events-none" style="z-index:-1; background: linear-gradient(90deg, #0072ff 0%, #00d4ff 100%);">
 </div>
 <nav id="nav" class="relative py-6 px-4 w-full sm:flex sm:items-center sm:justify-between container mx-auto max-w-screen-xl z-auto" >
-    <a class="inline-flex space-x-1 items-center text-3xl font-semibold transform hover:scale-110 text-white" href="./">
-        <svg class="h-10 w-10" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-        </svg>
-        <span>Bookmarks</span>
-    </a>
+        <a class="inline-flex space-x-1 items-center text-3xl font-semibold transform hover:scale-110 text-white" href="./">
+            <svg class="h-10 w-10" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+            </svg>
+            <span>Bookmarks</span>
+        </a>
     <div class="mt-4 md:mt-0 flex space-x-4">
         <?php if(count($cats) > 0):  ?>
             <div>
@@ -67,6 +69,26 @@ if(isset($_GET['logout'])){
                     </svg>
                 </span>
             </button>
+        <?php if($updates): ?>
+        <div class="relative hidden md:inline-block">
+            <span class="rounded-md shadow-sm" id="show-updates">
+                <button type="button" class="inline-flex justify-center w-full rounded-md px-4 py-2 bg-white bg-opacity-25 text-white hover:text-gray-300 outline-none transition ease-in-out duration-150">
+                    <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+                    </svg>
+                </button>
+            </span>
+            <div id="updates" class="origin-top-right absolute z-20 right-0 mt-2 min-w-full w-64 rounded-md shadow-lg opacity-0 pointer-events-none transition-all duration-150 ease-in overflow-hidden">
+                <div class="rounded-md bg-white shadow-xs h-64 overflow-y-auto remove-scrollbar">
+                    <div class="py-1 divide-y">
+                        <?php foreach ($updates as $update): ?>
+                            <span class="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 outline-none first:text-gray-900"><?= $update->message; ?></span>
+                        <?php endforeach; ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <?php endif; ?>
     </div>
 </nav>
 <div id="create-form" class="flex items-center h-screen opacity-0 pointer-events-none fixed inset-0 bg-black bg-opacity-50 transition-opacity ease-in duration-150 z-10">
@@ -136,19 +158,12 @@ if(isset($_GET['logout'])){
     </div>
 </div>
 <?php endif; ?>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
-<script src="./js/jquery.js"></script>
+<script defer src="./js/gsap.js"></script>
+<script defer src="./js/jquery.js"></script>
 <?php if(isset($_COOKIE['message'])): ?>
-<script defer type="text/javascript">
-    $("#message").toggleClass('opacity-0 pointer-events-none').delay(5000).queue(() => {
-        $("#message").toggleClass('opacity-0 pointer-events-none');
-    });
-</script>
+<script defer src="./js/message.js"></script>
 <?php endif; ?>
-<script defer type="text/javascript">
-    const tl = gsap.timeline({defaults: { ease: 'power1.out' }});
-    tl.fromTo('#item', { y: '-70%' }, { y: '0%', opacity: 100, duration: 1 });
-</script>
+<script defer src="./js/bladwijzer.js"></script>
 <script defer src="./js/app.js"></script>
 </body>
 </html>

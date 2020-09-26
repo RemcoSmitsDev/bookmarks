@@ -1,7 +1,6 @@
 <?php
 require_once './config/init.php';
 $bladwijzer = new Bladwijzers();
-$messages = new Message();
 if (isset($_POST['title'], $_POST['url'], $_POST['cat_id'])) {
     $bladwijzer->insertNew($_POST['title'], $_POST['url'], $_POST['cat_id']);
     return json_encode("error");

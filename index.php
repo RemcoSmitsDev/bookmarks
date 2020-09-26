@@ -30,7 +30,7 @@ if(isset($_COOKIE['email'], $_COOKIE['token']) && !empty($_COOKIE['email'] && $_
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" media="all" href="./css/tailwindcss.css" >
+    <link rel="stylesheet" type="text/css" media="all" href="./css/tailwindcss.css" >
     <meta property="og:description" content="All your bookmarks in one place">
     <meta property="og:title" content="Homepage - All your bookmarks in one place">
     <meta property="og:type" content="website">
@@ -102,39 +102,30 @@ if(isset($_COOKIE['email'], $_COOKIE['token']) && !empty($_COOKIE['email'] && $_
         <h1 class="block leading-tight font-bold text-3xl sm:text-5xl text-gray-900">in one place</h1>
     </div>
     <div id="banner-img" class="flex-shrink h-auto w-full max-w-2xl shadow-xl overflow-hidden opacity-0">
-        <img src="./images/banner.png" alt="">
+        <img src="./images/banner.png" alt="Picture of bookmarks page">
     </div>
 </section>
-<?php if(!isset($_SESSION['_user'])): ?>
-<section class="md:hidden px-6 my-48 container mx-auto max-w-screen-xl">
-    <div class="border-l-2 space-y-20">
-        <div id="info-1" class="-ml-3 space-x-2 flex items-center max-w-md">
-            <span class="h-6 w-6 px-2 inline-flex items-center justify-center rounded-full text-white font-semibold" style="background: #00d4ff;">1</span>
-            <a href="./register.php" class="font-semibold text-2xl">Create an account</a>
-        </div>
-        <div id="info-2" class="-ml-3 space-x-2 flex items-center max-w-md">
-            <span class="h-6 w-6 px-2 inline-flex items-center justify-center rounded-full text-white font-semibold" style="background: #00d4ff;">2</span>
-            <h2 class="font-semibold text-2xl">Add categories</h2>
-        </div>
-        <div id="info-3" class="-ml-3 space-x-2 flex items-center max-w-md">
-            <span class="h-6 w-6 px-2 inline-flex items-center justify-center rounded-full text-white font-semibold" style="background: #00d4ff;">3</span>
-            <h2 class="font-semibold text-2xl">Add bookmark</h2>
-        </div>
-    </div>
-</section>
-<?php endif; ?>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
+<?php //if(!isset($_SESSION['_user'])): ?>
+<!--<section class="md:hidden px-6 my-48 container mx-auto max-w-screen-xl">-->
+<!--    <div class="border-l-2 space-y-20">-->
+<!--        <div id="info-1" class="-ml-3 space-x-2 flex items-center max-w-md">-->
+<!--            <span class="h-6 w-6 px-2 inline-flex items-center justify-center rounded-full text-white font-semibold" style="background: #00d4ff;">1</span>-->
+<!--            <a href="./register.php" class="font-semibold text-2xl">Create an account</a>-->
+<!--        </div>-->
+<!--        <div id="info-2" class="-ml-3 space-x-2 flex items-center max-w-md">-->
+<!--            <span class="h-6 w-6 px-2 inline-flex items-center justify-center rounded-full text-white font-semibold" style="background: #00d4ff;">2</span>-->
+<!--            <h2 class="font-semibold text-2xl">Add categories</h2>-->
+<!--        </div>-->
+<!--        <div id="info-3" class="-ml-3 space-x-2 flex items-center max-w-md">-->
+<!--            <span class="h-6 w-6 px-2 inline-flex items-center justify-center rounded-full text-white font-semibold" style="background: #00d4ff;">3</span>-->
+<!--            <h2 class="font-semibold text-2xl">Add bookmark</h2>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</section>-->
+<?php //endif; ?>
+<script defer src="./js/gsap.js"></script>
 <script defer src="./js/jquery.js"></script>
-<script defer type="text/javascript">
-    const tl = gsap.timeline({defaults: { ease: 'power1.out' }});
-    tl.fromTo('#banner > #text', { y: '-100%', opacity: 0 }, { y: '0%', opacity: 100, duration: 1 })
-    .fromTo('#banner > #banner-img', { x: '100%', opacity: 0 }, { x: '0%', opacity: 100, duration: 1 }, '-=.5');
-    $("#toggleMenu, #closeMenu").click(() => {
-        $("#menu").toggleClass("hidden");
-        $("#menu").toggleClass("opacity-0");
-        $("body").toggleClass("overflow-hidden");
-        console.log("close");
-    });
+<script defer src="./js/index.js">
 </script>
 </body>
 </html>

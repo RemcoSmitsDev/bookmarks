@@ -5,6 +5,7 @@ module.exports = {
       "./*.html",
       "./*.php",
       "./js/*.js",
+      "./lib/*.php",
     ],
   },
   theme: {},
@@ -16,8 +17,8 @@ module.exports = {
     zIndex: ["responsive", "hover", "focus"],
     borderWidth: ["responsive", "first", "hover", "focus", "group-hover"],
     width: ["responsive", "first", "hover", "focus"],
-    space: ["responsive", "hover", "focus"],
-    textColor: ["responsive", "hover", "focus", "active", "group-hover"],
+    space: ["responsive"],
+    textColor: ["responsive", "hover", "focus", "active", "group-hover", "first"]
   },
   plugins: [],
 };

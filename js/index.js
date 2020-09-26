@@ -1,0 +1,1 @@
+const tl=gsap.timeline({defaults:{ease:"power1.out"}});tl.fromTo("#banner > #text",{y:"-100%",opacity:0},{y:"0%",opacity:100,duration:1}).fromTo("#banner > #banner-img",{x:"100%",opacity:0},{x:"0%",opacity:100,duration:1},"-=.5"),$("#toggleMenu, #closeMenu").click(()=>{$("#menu").toggleClass("hidden"),$("#menu").toggleClass("opacity-0"),$("body").toggleClass("overflow-hidden")});
