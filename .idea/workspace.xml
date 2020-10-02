@@ -11,23 +11,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="612f2e9b-170a-443b-9b35-c5b32cf1da22" name="Default Changelist" comment="-">
-      <change afterPath="$PROJECT_DIR$/js/bladwijzer.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js/gsap.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js/message.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.htaccess" beforeDir="false" afterPath="$PROJECT_DIR$/.htaccess" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/users.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bladwijzer.php" beforeDir="false" afterPath="$PROJECT_DIR$/bladwijzer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/css/tailwindcss.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/tailwindcss.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Bladwijzers.php" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Bladwijzers.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/Message.php" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Message.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/login.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proccess.php" beforeDir="false" afterPath="$PROJECT_DIR$/proccess.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/register.php" beforeDir="false" afterPath="$PROJECT_DIR$/register.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tailwind.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/tailwind.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Login.php" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Login.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -126,7 +115,13 @@
       <workItem from="1600950687341" duration="678000" />
       <workItem from="1600980912419" duration="12459000" />
       <workItem from="1601035949043" duration="1038000" />
-      <workItem from="1601116369687" duration="15687000" />
+      <workItem from="1601116369687" duration="16179000" />
+      <workItem from="1601387391695" duration="2717000" />
+      <workItem from="1601564888195" duration="666000" />
+      <workItem from="1601645501543" duration="335000" />
+      <workItem from="1601646065345" duration="8000" />
+      <workItem from="1601646352761" duration="354000" />
+      <workItem from="1601659141841" duration="413000" />
     </task>
     <task id="LOCAL-00001" summary="first changes">
       <created>1599937953340</created>
@@ -184,11 +179,11 @@
       <screen x="0" y="23" width="1792" height="1030" />
     </state>
     <state x="629" y="271" key="NewPhpClassDialog/0.23.1792.1030@0.23.1792.1030" timestamp="1600984260551" />
-    <state x="397" y="176" key="SettingsEditor" timestamp="1600984181356">
+    <state x="397" y="176" key="SettingsEditor" timestamp="1601645866170">
       <screen x="0" y="23" width="1792" height="1030" />
     </state>
     <state x="397" y="176" key="SettingsEditor/0.23.1792.1028@0.23.1792.1028" timestamp="1599911320763" />
-    <state x="397" y="176" key="SettingsEditor/0.23.1792.1030@0.23.1792.1030" timestamp="1600984181356" />
+    <state x="397" y="176" key="SettingsEditor/0.23.1792.1030@0.23.1792.1030" timestamp="1601645866170" />
     <state x="496" y="277" key="Vcs.Push.Dialog.v2" timestamp="1600003024645">
       <screen x="0" y="23" width="1792" height="1028" />
     </state>

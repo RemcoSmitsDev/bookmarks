@@ -53,7 +53,6 @@ class Login{
             if($user = $this->CheckIfUserExistWithToken($email, $token)){
                 $_SESSION['_user'] = $user;
                 $this->startCookie();
-                $this->message->CreateSessionMessage('logged in', 'You can now view/create all your bookmarks');
                 return $user;
             }else{
                 return false;
