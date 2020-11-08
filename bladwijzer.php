@@ -14,10 +14,10 @@ if(isset($_GET['logout'])){
     exit;
 }
 
-$slug = str_replace("/", "",$_SERVER['REQUEST_URI']);
-if($slug !== $_SESSION['_user']->first_name . "-" . $_SESSION['_user']->last_name){
-    header("location: ". $_SESSION['_user']->first_name . "-" . $_SESSION['_user']->last_name);
-}
+// $slug = str_replace("/", "",$_SERVER['REQUEST_URI']);
+// if($slug !== $_SESSION['_user']->first_name . "-" . $_SESSION['_user']->last_name){
+//     header("location: ". $_SESSION['_user']->first_name . "-" . $_SESSION['_user']->last_name);
+// }
 ?>
 <!DOCTYPE html>
 <html lang="en">
